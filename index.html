@@ -3,406 +3,675 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0e0d">
-  <meta name="description" content="Phirum Seng — banking professional and hands-on technologist in Cambodia. Explore my work across finance, AI, data, infrastructure, and digital products.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0d0c" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Phirum Seng — banking professional and hands-on technologist in Phnom Penh, Cambodia. Founder and author of KNetraHub, the PLXY AI Call Center, and DrowsyGuard MCU. Explore the work across infrastructure, AI, telephony, data, and digital products.">
+  <meta name="author" content="Phirum Seng">
+  <link rel="canonical" href="https://sengphirum.github.io/">
+
   <meta property="og:title" content="Phirum Seng — Finance × Technology">
-  <meta property="og:description" content="Banking perspective. Builder mindset. A live portfolio of projects across AI, data, infrastructure, and digital products.">
+  <meta property="og:description" content="Banking perspective. Builder mindset. Flagship work across self-hosted infrastructure, enterprise AI telephony, and embedded computer vision — plus a live portfolio straight from GitHub.">
   <meta property="og:image" content="https://sengphirum.github.io/profile-professional.webp">
-  <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="Portrait of Phirum Seng">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://sengphirum.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
   <title>Phirum Seng — Finance × Technology</title>
-  <style>
-    :root {
-      --ink: #101311;
-      --paper: #f2f0e9;
-      --paper-deep: #e6e1d6;
-      --primary: dodgerblue;
-      --primary-deep: #0868c9;
-      --primary-soft: #dceeff;
-      --muted: #62675f;
-      --line: rgba(16, 19, 17, .16);
-      --display: "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
-      --body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 84% 8%, rgba(30, 144, 255, .11), transparent 28rem),
-        var(--paper);
-      font-family: var(--body);
-      -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .12;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      z-index: 20;
-    }
-    a { color: inherit; }
-    button, input, select { font: inherit; }
-    button { color: inherit; }
-    :focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
-    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
-    .skip-link { position: fixed; left: 16px; top: -80px; z-index: 100; padding: 12px 16px; background: var(--primary); color: white; font-weight: 800; }
-    .skip-link:focus { top: 16px; }
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e90ff'/%3E%3Cstop offset='1' stop-color='%237c5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='17' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='26' font-weight='700' fill='%23fff' text-anchor='middle'%3EPS%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="./profile-professional.webp">
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--line);
-      background: rgba(242, 240, 233, .88);
-      backdrop-filter: blur(16px);
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 850; letter-spacing: -.03em; }
-    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; background: var(--primary); color: white; border-radius: 12px; font-size: 12px; box-shadow: 0 8px 22px rgba(30, 144, 255, .25); }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 700; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { padding: 10px 15px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink) !important; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400..600&display=swap">
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <script>
+    /* Runs before first paint: flags that scripting is live and restores the
+       saved theme, so a chosen dark theme never flashes light on load. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("js");
+      try {
+        var saved = localStorage.getItem("ps-theme");
+        if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+      } catch (e) {}
+    })();
+  </script>
 
-    .hero { position: relative; padding: clamp(72px, 11vw, 150px) 0 84px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(290px, .65fr); gap: clamp(42px, 8vw, 110px); align-items: end; }
-    .kicker { display: flex; align-items: center; gap: 9px; margin: 0 0 22px; font-size: 13px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .kicker::before { content: ""; width: 34px; height: 3px; background: var(--primary); }
-    h1, h2, h3 { margin-top: 0; }
-    h1 {
-      max-width: 850px;
-      margin-bottom: 28px;
-      font-family: var(--display);
-      font-size: clamp(64px, 10.8vw, 148px);
-      font-stretch: condensed;
-      font-weight: 900;
-      letter-spacing: -.07em;
-      line-height: .78;
-      text-transform: uppercase;
-    }
-    h1 .outline { color: var(--primary); -webkit-text-stroke: 0; text-stroke: 0; }
-    .hero-lead { max-width: 680px; margin: 0; color: var(--muted); font-size: clamp(18px, 2.2vw, 23px); line-height: 1.55; }
-    .hero-card { position: relative; isolation: isolate; }
-    .hero-card::before { content: ""; position: absolute; width: 54%; aspect-ratio: 1; right: -11%; top: -8%; z-index: -1; border: 2px solid var(--primary); border-radius: 50%; opacity: .55; }
-    .hero-card::after { content: "+"; position: absolute; left: -22px; bottom: 12%; z-index: 2; color: var(--primary); font-size: 68px; font-weight: 200; line-height: 1; }
-    .portrait-wrap { position: relative; aspect-ratio: 5 / 6; overflow: hidden; background: var(--primary-soft); border: 1px solid var(--ink); border-radius: 34px 34px 140px 34px; box-shadow: 18px 18px 0 var(--primary); }
-    .portrait-wrap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(16, 19, 17, .35)); }
-    .portrait { width: 100%; height: 100%; object-fit: cover; object-position: 66% center; }
-    .availability { position: absolute; right: -10px; bottom: 28px; z-index: 2; display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-radius: 999px; background: white; border: 1px solid var(--ink); box-shadow: 0 8px 30px rgba(16, 19, 17, .18); font-size: 12px; font-weight: 850; text-transform: uppercase; }
-    .availability::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 4px rgba(30, 144, 255, .15); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 50px; padding: 0 20px; border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; font-weight: 800; transition: transform .18s ease, background .18s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button.primary { border-color: var(--primary); background: var(--primary); color: white; box-shadow: 0 12px 28px rgba(30, 144, 255, .22); }
-    .button.primary:hover { background: var(--primary-deep); }
-    .arrow { font-size: 18px; line-height: 1; }
-
-    .focus-band { padding: 0 0 20px; }
-    .focus-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1.15fr; border: 1px solid var(--ink); border-radius: 24px; overflow: hidden; background: rgba(255, 255, 255, .45); box-shadow: 0 22px 60px rgba(16, 19, 17, .07); }
-    .focus-item { position: relative; min-height: 150px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
-    .focus-item + .focus-item { border-left: 1px solid var(--line); }
-    .focus-item:nth-child(2) { background: var(--primary); color: white; }
-    .focus-item:nth-child(4) { background: var(--ink); color: white; }
-    .focus-index { position: relative; z-index: 1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; opacity: .65; }
-    .focus-item strong { position: relative; z-index: 1; max-width: 150px; font-size: 17px; line-height: 1.12; letter-spacing: -.03em; }
-    .focus-shape { position: absolute; width: 78px; height: 78px; right: -17px; top: -17px; border: 1px solid currentColor; border-radius: 50%; opacity: .2; }
-    .focus-shape::after { content: ""; position: absolute; width: 42px; height: 42px; left: -18px; bottom: -18px; border: 1px solid currentColor; transform: rotate(45deg); }
-
-    .section { padding: clamp(76px, 10vw, 128px) 0; }
-    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; margin-bottom: 48px; }
-    .section-number { display: block; margin-bottom: 14px; color: var(--primary); font-size: 12px; font-weight: 900; letter-spacing: .14em; }
-    h2 { margin-bottom: 0; font-family: var(--display); font-size: clamp(48px, 7vw, 88px); line-height: .85; letter-spacing: -.055em; text-transform: uppercase; }
-    .section-copy { max-width: 540px; margin: 0 0 4px auto; color: var(--muted); line-height: 1.7; }
-
-    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
-    .statement { min-height: 360px; padding: clamp(28px, 5vw, 54px); border-radius: 28px; background: var(--ink); color: white; display: flex; flex-direction: column; justify-content: space-between; }
-    .statement p { max-width: 720px; margin: 0; font-size: clamp(25px, 3.5vw, 43px); line-height: 1.18; letter-spacing: -.035em; }
-    .statement p strong { color: var(--primary); }
-    .statement-label { color: #aeb5ae; font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .principles { display: grid; gap: 18px; }
-    .principle { padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255, 255, 255, .35); }
-    .principle-top { display: flex; justify-content: space-between; gap: 20px; }
-    .principle h3 { margin-bottom: 10px; font-size: 20px; letter-spacing: -.03em; }
-    .principle p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
-    .principle-index { color: var(--primary); font-family: var(--display); font-weight: 900; }
-
-    .work { background: var(--ink); color: #f7f7f2; }
-    .work .section-copy { color: #aeb5ae; }
-    .repo-toolbar { display: grid; grid-template-columns: minmax(240px, 1fr) auto; gap: 14px; margin-bottom: 26px; }
-    .search-wrap { position: relative; }
-    .search-wrap::before { content: "⌕"; position: absolute; left: 17px; top: 50%; transform: translateY(-54%); color: #aeb5ae; font-size: 22px; }
-    .search, .sort { width: 100%; min-height: 50px; border: 1px solid rgba(255,255,255,.2); border-radius: 14px; background: #191d1a; color: white; }
-    .search { padding: 0 18px 0 47px; }
-    .sort { padding: 0 38px 0 15px; }
-    .search::placeholder { color: #899089; }
-    .tag-filters { display: flex; gap: 9px; padding-bottom: 28px; overflow-x: auto; scrollbar-width: thin; }
-    .filter { flex: 0 0 auto; padding: 9px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: transparent; color: #c8cdc8; cursor: pointer; font-size: 12px; font-weight: 800; }
-    .filter:hover, .filter.active { border-color: var(--primary); background: var(--primary); color: white; }
-    .repo-status { min-height: 280px; display: grid; place-items: center; border: 1px dashed rgba(255,255,255,.2); border-radius: 22px; color: #aeb5ae; text-align: center; }
-    .spinner { width: 28px; height: 28px; margin: 0 auto 15px; border: 3px solid rgba(255,255,255,.16); border-top-color: var(--primary); border-radius: 50%; animation: spin .8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .repo-group + .repo-group { margin-top: 54px; }
-    .group-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-    .group-head h3 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
-    .group-count { display: grid; place-items: center; min-width: 28px; height: 28px; padding: 0 8px; border-radius: 999px; background: rgba(255,255,255,.1); color: #bfc5bf; font-size: 11px; font-weight: 800; }
-    .repo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .repo-card { position: relative; min-height: 255px; padding: 24px; border: 1px solid rgba(255,255,255,.16); border-radius: 20px; color: white; text-decoration: none; display: flex; flex-direction: column; background: #141815; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
-    .repo-card:hover { transform: translateY(-4px); border-color: var(--primary); background: #1b201c; }
-    .repo-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
-    .repo-card h4 { margin: 0; font-size: 18px; line-height: 1.3; letter-spacing: -.03em; overflow-wrap: anywhere; }
-    .repo-arrow { color: var(--primary); font-size: 20px; transition: transform .2s ease; }
-    .repo-card:hover .repo-arrow { transform: translate(3px, -3px); }
-    .repo-description { margin: 18px 0 22px; color: #aeb5ae; line-height: 1.55; font-size: 14px; }
-    .repo-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-    .repo-tag { padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.08); color: #cbd0cb; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
-    .repo-meta { display: flex; gap: 14px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.1); color: #909790; font-size: 11px; }
-    .language-dot { display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: var(--primary); }
-    .empty-message { padding: 50px 20px; border: 1px dashed rgba(255,255,255,.2); border-radius: 22px; color: #aeb5ae; text-align: center; }
-
-    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
-    .metric { padding: 34px 22px; text-align: center; }
-    .metric + .metric { border-left: 1px solid var(--line); }
-    .metric-value { display: block; font-family: var(--display); font-size: clamp(44px, 6vw, 76px); font-weight: 900; letter-spacing: -.05em; line-height: 1; }
-    .metric-label { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
-
-    .contact-card { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 36px; align-items: end; padding: clamp(34px, 7vw, 76px); border-radius: 32px; overflow: hidden; background: var(--primary); color: white; box-shadow: 0 28px 70px rgba(30, 144, 255, .24); }
-    .contact-card::after { content: ""; position: absolute; width: 280px; height: 280px; right: -100px; top: -140px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; box-shadow: 0 0 0 40px rgba(255,255,255,.05), 0 0 0 90px rgba(255,255,255,.04); }
-    .contact-card h2 { max-width: 760px; color: white; }
-    .contact-card .section-number { color: rgba(255,255,255,.72); }
-    .contact-side p { margin: 0 0 22px; line-height: 1.6; }
-    .contact-side { position: relative; z-index: 1; }
-    .contact-side .button { border-color: white; background: white; color: var(--ink); }
-    footer { padding: 36px 0; }
-    .footer-row { display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 12px; }
-    .footer-row a { color: var(--ink); font-weight: 800; }
-
-    @media (max-width: 900px) {
-      .hero-grid, .about-grid, .section-head, .contact-card { grid-template-columns: 1fr; }
-      .hero-card { width: min(420px, 88%); margin: 0 auto; }
-      .focus-grid { grid-template-columns: repeat(2, 1fr); }
-      .focus-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
-      .focus-item:nth-child(4) { border-top: 1px solid var(--line); }
-      .section-copy { margin-left: 0; }
-      .repo-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 620px) {
-      .wrap { width: min(100% - 26px, 1180px); }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { padding-top: 62px; }
-      .focus-grid { grid-template-columns: 1fr; }
-      .focus-item + .focus-item { border-left: 0; border-top: 1px solid var(--line); }
-      h1 { font-size: clamp(58px, 21vw, 94px); }
-      .repo-toolbar { grid-template-columns: 1fr; }
-      .repo-grid { grid-template-columns: 1fr; }
-      .metrics { grid-template-columns: 1fr; }
-      .metric + .metric { border-left: 0; border-top: 1px solid var(--line); }
-      .footer-row { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Phirum Seng",
+    "alternateName": "Seng Phirum",
+    "url": "https://sengphirum.github.io/",
+    "image": "https://sengphirum.github.io/profile-professional.webp",
+    "jobTitle": "Banking professional and technologist",
+    "email": "mailto:sengphirum143@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Phnom Penh", "addressCountry": "KH" },
+    "sameAs": [
+      "https://github.com/SengPhirum",
+      "https://www.linkedin.com/in/phirum-seng/"
+    ],
+    "knowsAbout": [
+      "Banking systems", "Self-hosted infrastructure", "Docker Swarm", "AI call centre telephony",
+      "Computer vision", "Embedded machine learning", "Data and analytics", "Web applications"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav wrap" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Phirum Seng, home"><span class="brand-mark">PS</span><span>Phirum Seng</span></a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Projects</a>
-        <a class="nav-cta" href="#contact">Let’s connect</a>
+
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="progress-rail" aria-hidden="true"><i id="progress-bar"></i></div>
+
+  <!-- ===================================================================
+       SVG sprite — icons plus the generated assistant avatar.
+       The avatar is derived from the real portrait: the photo is cropped to
+       the face, desaturated, posterised into six bands and remapped onto a
+       blue duotone ramp, then dressed with a HUD visor and an orbiting ring.
+       =================================================================== -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <filter id="botDuotone" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0.02 0.04 0.08 0.22 0.48 0.80"/>
+          <feFuncG type="discrete" tableValues="0.07 0.16 0.34 0.58 0.83 0.96"/>
+          <feFuncB type="discrete" tableValues="0.15 0.33 0.59 0.85 0.97 1"/>
+        </feComponentTransfer>
+      </filter>
+      <clipPath id="botClip"><circle cx="50" cy="50" r="50"/></clipPath>
+      <linearGradient id="botRing" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#1e90ff"/>
+        <stop offset=".55" stop-color="#61d5ff"/>
+        <stop offset="1" stop-color="#7c5cff"/>
+      </linearGradient>
+      <pattern id="botScan" width="4" height="4" patternUnits="userSpaceOnUse">
+        <rect width="4" height="1.1" fill="#9fe2ff" opacity=".16"/>
+      </pattern>
+      <radialGradient id="botVignette" cx=".5" cy=".46" r=".62">
+        <stop offset=".5" stop-color="#020a14" stop-opacity="0"/>
+        <stop offset="1" stop-color="#020a14" stop-opacity=".8"/>
+      </radialGradient>
+    </defs>
+
+    <symbol id="bot-avatar" viewBox="0 0 100 100">
+      <g clip-path="url(#botClip)">
+        <rect width="100" height="100" fill="#04101f"/>
+        <image href="./profile-professional.webp" x="-115.77" y="-35.58" width="269.23" height="215.38"
+               preserveAspectRatio="xMidYMid slice" filter="url(#botDuotone)"/>
+        <rect width="100" height="100" fill="url(#botScan)"/>
+        <rect width="100" height="100" fill="url(#botVignette)"/>
+        <!-- HUD visor across the eye line -->
+        <g stroke="#7fe3ff" fill="none" stroke-linecap="round">
+          <path d="M22 51.5 H78" stroke-width="1" opacity=".45"/>
+          <path d="M22 47 v9 M78 47 v9" stroke-width="1" opacity=".55"/>
+          <circle cx="38.5" cy="51" r="2.4" stroke-width="1.1" opacity=".85"/>
+          <circle cx="57.5" cy="50.6" r="2.4" stroke-width="1.1" opacity=".85"/>
+        </g>
+        <circle cx="38.5" cy="51" r="1" fill="#bdf0ff"/>
+        <circle cx="57.5" cy="50.6" r="1" fill="#bdf0ff"/>
+        <!-- circuit trace -->
+        <path d="M6 78 H22 l6 6 H46 l5-5 H70" stroke="#4fc3ff" stroke-width=".8" fill="none" opacity=".45"/>
+        <circle cx="22" cy="78" r="1.4" fill="#4fc3ff" opacity=".8"/>
+        <circle cx="70" cy="79" r="1.4" fill="#7c5cff" opacity=".9"/>
+        <!-- corner brackets -->
+        <g stroke="#9fe2ff" stroke-width="1" fill="none" opacity=".5">
+          <path d="M14 26 v-6 h6"/><path d="M86 26 v-6 h-6"/>
+        </g>
+      </g>
+      <circle cx="50" cy="50" r="48" fill="none" stroke="url(#botRing)" stroke-width="3.6"/>
+      <g class="viz-orbit">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="none"/>
+        <circle cx="50" cy="2.6" r="3.4" fill="#7c5cff"/>
+        <circle cx="50" cy="97.4" r="2" fill="#61d5ff"/>
+      </g>
+    </symbol>
+
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M19.1 4.9l-1.5 1.5M6.4 17.6l-1.5 1.5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.1 4.9 18.1 5.2 18.1 5.2c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5Z"/><path d="M4 20.5A1.5 1.5 0 0 1 5.5 19H19v2H5.5A1.5 1.5 0 0 1 4 20.5Z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></symbol>
+    <symbol id="i-arrow-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8m0 0H9m7 0v7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 20 4l-8 16-2-6-6-2Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 13.9 9 20.5 11l-6.6 2L12 19.5 10.1 13 3.5 11 10.1 9 12 2.5Z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4v5h-5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v7A2.5 2.5 0 0 0 5.5 15"/></symbol>
+    <symbol id="i-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v6a4 4 0 0 0 4 4h11m0 0-4-4m4 4-4 4"/></symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">PS</span>
+        <span class="brand-name"><span>Phirum Seng</span><small>Finance × Technology</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#flagship">Flagship</a>
+        <a class="nav-link" href="#work">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <div class="nav-tools">
+        <button class="palette-key" type="button" id="palette-open" aria-label="Open the quick navigator">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <span>Jump to…</span>
+          <kbd id="palette-kbd">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" id="theme-toggle" aria-label="Switch colour theme">
+          <svg class="moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="icon-button" href="https://github.com/SengPhirum" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg aria-hidden="true"><use href="#i-github"/></svg>
+        </a>
       </div>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top" data-section="Home">
       <div class="hero-grid wrap">
         <div>
-          <p class="kicker">Phnom Penh, Cambodia</p>
-          <h1>Finance <span class="outline">meets</span> technology.</h1>
-          <p class="hero-lead">I’m Phirum — a banking professional and hands-on technologist turning complex systems into useful, human-centered solutions.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#work">Explore my work <span class="arrow">↓</span></a>
-            <a class="button" href="https://github.com/SengPhirum" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+          <p class="kicker" data-reveal><span class="pulse" aria-hidden="true"></span>Phnom Penh · Cambodia</p>
+          <h1 data-rise>Finance <span class="grad">meets</span> technology.</h1>
+          <p class="hero-lead" data-reveal style="--reveal-delay:120ms">
+            I am Phirum — a <strong>banking professional</strong> and hands-on technologist. I build the
+            unglamorous systems that operations teams live inside: infrastructure portals, AI telephony,
+            and embedded computer vision — then make them clear enough that people actually use them.
+          </p>
+          <div class="hero-actions" data-reveal style="--reveal-delay:200ms">
+            <a class="button primary is-magnetic" href="#flagship"><span>See the flagship work</span><span class="arrow" aria-hidden="true">↓</span></a>
+            <button class="button is-magnetic" type="button" data-open-assistant><span>Ask my AI assistant</span><svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#i-spark"/></svg></button>
+          </div>
+          <div class="hero-proof" data-reveal style="--reveal-delay:280ms">
+            <div class="proof-item"><strong data-count="3">0</strong><span>Flagship systems</span></div>
+            <div class="proof-item"><strong data-count="844" data-suffix="">0</strong><span>AICC checks passing</span></div>
+            <div class="proof-item"><strong data-count="6">0</strong><span>Apps in KNetraHub</span></div>
+            <div class="proof-item"><strong id="proof-repos">—</strong><span>Public repositories</span></div>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Profile photo">
-          <div class="portrait-wrap"><img class="portrait" src="./profile-professional.webp" alt="Portrait of Phirum Seng outside a modern bank office" width="1400" height="1120"></div>
-          <div class="availability">Open to collaboration</div>
+
+        <aside class="hero-card" aria-label="Portrait" data-reveal="scale" style="--reveal-delay:160ms">
+          <div class="portrait-wrap" id="portrait-wrap">
+            <img class="portrait" id="portrait" src="./profile-professional.webp" width="1400" height="1120"
+                 alt="Phirum Seng standing outside a modern bank office building" fetchpriority="high" decoding="async">
+            <span class="scanline" aria-hidden="true"></span>
+          </div>
+          <p class="availability">Open to collaboration</p>
         </aside>
       </div>
-    </section>
 
-    <section class="focus-band wrap" aria-label="Focus areas">
-      <div class="focus-grid">
-        <article class="focus-item"><span class="focus-index">01 / DOMAIN</span><strong>Banking systems</strong><i class="focus-shape" aria-hidden="true"></i></article>
-        <article class="focus-item"><span class="focus-index">02 / BUILD</span><strong>AI & computer vision</strong><i class="focus-shape" aria-hidden="true"></i></article>
-        <article class="focus-item"><span class="focus-index">03 / SCALE</span><strong>Infrastructure & data</strong><i class="focus-shape" aria-hidden="true"></i></article>
-        <article class="focus-item"><span class="focus-index">04 / OUTCOME</span><strong>Useful digital products</strong><i class="focus-shape" aria-hidden="true"></i></article>
+      <div class="marquee wrap" aria-hidden="true">
+        <div class="marquee-track">
+          <ul>
+            <li>Banking systems</li><li>Docker Swarm</li><li>AI call centre</li><li>Computer vision</li>
+            <li>PostgreSQL</li><li>Nuxt &amp; Vue</li><li>Spring Boot</li><li>Embedded ML</li>
+            <li>Observability</li><li>Privileged access</li><li>FreeSWITCH</li><li>Data &amp; analytics</li>
+          </ul>
+          <ul>
+            <li>Banking systems</li><li>Docker Swarm</li><li>AI call centre</li><li>Computer vision</li>
+            <li>PostgreSQL</li><li>Nuxt &amp; Vue</li><li>Spring Boot</li><li>Embedded ML</li>
+            <li>Observability</li><li>Privileged access</li><li>FreeSWITCH</li><li>Data &amp; analytics</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <!-- ============================== ABOUT ============================= -->
+    <section class="section" id="about" data-section="About">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="section-number">01 / ABOUT</span><h2>Two worlds.<br>One perspective.</h2></div>
-          <p class="section-copy">My work sits at the intersection of financial services and technology. I bring operational discipline from banking to technical projects, and a builder’s curiosity to every business problem.</p>
+          <div data-reveal>
+            <span class="section-number">01 / About</span>
+            <h2>Two worlds.<br>One perspective.</h2>
+          </div>
+          <p class="section-copy" data-reveal style="--reveal-delay:120ms">
+            My work sits at the intersection of financial services and technology. Banking taught me
+            operational discipline — reconciliation, auditability, and the cost of an unclear process.
+            Building taught me that most of those problems are solvable in software if you refuse to
+            hide the complexity behind a demo.
+          </p>
         </div>
         <div class="about-grid">
-          <div class="statement">
-            <span class="statement-label">My approach</span>
-            <p>Understand the real problem. Make the system <strong>clearer.</strong> Build something people can actually use.</p>
+          <div class="statement" data-reveal="left">
+            <span class="statement-label">The approach</span>
+            <p>Understand the real problem. Make the system <em>clearer.</em> Ship something people can actually operate.</p>
           </div>
           <div class="principles">
-            <article class="principle"><div class="principle-top"><div><h3>Business grounded</h3><p>Customer needs, operational realities, and measurable value come before novelty.</p></div><span class="principle-index">01</span></div></article>
-            <article class="principle"><div class="principle-top"><div><h3>Technically curious</h3><p>From AI and computer vision to infrastructure and web products, I learn by building.</p></div><span class="principle-index">02</span></div></article>
-            <article class="principle"><div class="principle-top"><div><h3>Built for clarity</h3><p>Good work should make complicated ideas easier to understand, operate, and improve.</p></div><span class="principle-index">03</span></div></article>
+            <article class="principle" data-reveal="right">
+              <div class="principle-top">
+                <div>
+                  <h3>Business grounded</h3>
+                  <p>Customer needs, operational realities, and measurable value come before novelty. A system that nobody can run on a Tuesday morning is not finished.</p>
+                </div>
+                <span class="principle-index">01</span>
+              </div>
+            </article>
+            <article class="principle" data-reveal="right" style="--reveal-delay:100ms">
+              <div class="principle-top">
+                <div>
+                  <h3>Verified, not asserted</h3>
+                  <p>Test gates run in CI on every change, end-to-end suites boot the real services, and QA numbers are regenerated from the reports rather than typed into a README.</p>
+                </div>
+                <span class="principle-index">02</span>
+              </div>
+            </article>
+            <article class="principle" data-reveal="right" style="--reveal-delay:200ms">
+              <div class="principle-top">
+                <div>
+                  <h3>Honest about limits</h3>
+                  <p>Every project states what it has not proven — carrier certification, real-driver validation, load and soak. Naming the gap is part of the engineering.</p>
+                </div>
+                <span class="principle-index">03</span>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section work" id="work">
+    <!-- =========================== FLAGSHIP ============================ -->
+    <section class="section flagship" id="flagship" data-section="Flagship">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="section-number">02 / PUBLIC WORK</span><h2>Projects,<br>live from GitHub.</h2></div>
-          <p class="section-copy">Every public repository is loaded directly from GitHub, automatically organized into focus areas, and tagged by topic and language. New public work appears here without a site update.</p>
+          <div data-reveal>
+            <span class="section-number">02 / Achievements</span>
+            <h2>Flagship<br>systems.</h2>
+          </div>
+          <p class="section-copy" data-reveal style="--reveal-delay:120ms">
+            Three systems I designed and built end to end — each documented publicly, each with its own
+            live documentation site. Open any of them and you get the architecture, the setup path, and
+            an honest account of what has and has not been proven.
+          </p>
         </div>
 
-        <div class="repo-toolbar">
-          <label class="search-wrap"><span class="skip-link">Search repositories</span><input class="search" id="repo-search" type="search" placeholder="Search projects, topics, or languages…" autocomplete="off"></label>
-          <label><span class="skip-link">Sort repositories</span><select class="sort" id="repo-sort"><option value="updated">Recently updated</option><option value="stars">Most starred</option><option value="name">Name A–Z</option></select></label>
-        </div>
-        <div class="tag-filters" id="tag-filters" aria-label="Filter projects by tag"></div>
-        <div id="repo-content" aria-live="polite">
-          <div class="repo-status"><div><div class="spinner"></div>Loading public repositories…</div></div>
+        <div class="flagship-list">
+
+          <!-- ---------------------------- KNetraHub --------------------- -->
+          <article class="flagship-item is-tilt" data-reveal id="p-knetrahub">
+            <div>
+              <div class="flagship-head">
+                <span class="flagship-index">01 — Infrastructure</span>
+                <span class="flagship-status">Founder &amp; author · v0.1.9</span>
+              </div>
+              <h3>KNetraHub</h3>
+              <p class="flagship-tagline">“Khmer Netra Hub — a portal for everything in your infrastructure, one hub at a time.”</p>
+              <p class="flagship-summary">
+                Self-hosted infrastructure operations behind <strong>one login, one theme, and one audit
+                trail</strong>. A single Nuxt application presents a portal shell — launcher, sidebar,
+                permissions, notifications, audit — in front of a growing suite of operations subsystems.
+                Each subsystem is a Nuxt layer that merges into one in-process build: no micro-frontends,
+                no iframes, no module-federation remotes. One image, one deploy.
+              </p>
+              <ul class="flagship-points">
+                <li><strong>Six operations apps</strong> ship as layers — Docker Swarm console, Monitoring (a clean-room LibreNMS equivalent), Work (ClickUp equivalent), Privileged Access, IP Management, and Database Manager.</li>
+                <li><strong>Database per module</strong> on PostgreSQL + TimescaleDB with raw parameterised SQL and no ORM; disabling an app stops its work but keeps its data.</li>
+                <li><strong>Encrypted at rest end to end</strong> — LDAP binds, OIDC secrets, registry auth, SNMP credentials and the PAM vault under AES-256-GCM, with envelope encryption and a versioned master key.</li>
+                <li><strong>Scales horizontally with no broker</strong> — the database itself coordinates through advisory locks, lease-based job queues and <code>LISTEN</code>/<code>NOTIFY</code>. No Redis, no message bus.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Nuxt 4</span><span class="chip">Vue 3</span><span class="chip">Nuxt UI 4</span>
+                <span class="chip">Tailwind v4</span><span class="chip">PostgreSQL</span><span class="chip">TimescaleDB</span>
+                <span class="chip">Docker Swarm</span><span class="chip">Keycloak</span><span class="chip">Playwright</span>
+              </div>
+              <div class="flagship-links">
+                <a class="link-pill solid" href="https://sengphirum.github.io/KNetraHub/documentation" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-book"/></svg>Documentation<svg aria-hidden="true"><use href="#i-arrow-out"/></svg>
+                </a>
+                <a class="link-pill" href="https://github.com/SengPhirum/KNetraHub" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-github"/></svg>Repository
+                </a>
+              </div>
+            </div>
+
+            <div class="flagship-visual" aria-hidden="true">
+              <div class="visual-label"><span>Portal shell + layers</span><span>in-process</span></div>
+              <div class="visual-stage">
+                <svg viewBox="0 0 300 200" role="presentation">
+                  <circle cx="150" cy="100" r="86" class="viz-line" stroke-dasharray="3 7" opacity=".55"/>
+                  <g class="viz-flow">
+                    <path d="M150 100 V38"/><path d="M150 100 L207 68"/><path d="M150 100 L207 132"/>
+                    <path d="M150 100 V162"/><path d="M150 100 L93 132"/><path d="M150 100 L93 68"/>
+                  </g>
+                  <g>
+                    <rect x="107" y="84" width="86" height="32" rx="9" class="viz-fill-ink"/>
+                    <text x="150" y="97" text-anchor="middle" class="viz-text-inv">PORTAL SHELL</text>
+                    <text x="150" y="108" text-anchor="middle" class="viz-text-inv sub">auth · audit · theme</text>
+                  </g>
+                  <g class="viz-pulse"><rect x="124" y="24" width="52" height="20" rx="7" class="viz-node"/><text x="150" y="37" text-anchor="middle" class="viz-text">DOCKER</text></g>
+                  <g class="viz-pulse"><rect x="181" y="58" width="58" height="20" rx="7" class="viz-node"/><text x="210" y="71" text-anchor="middle" class="viz-text">MONITORING</text></g>
+                  <g class="viz-pulse"><rect x="181" y="122" width="58" height="20" rx="7" class="viz-node"/><text x="210" y="135" text-anchor="middle" class="viz-text">IPAM</text></g>
+                  <g class="viz-pulse"><rect x="124" y="152" width="52" height="20" rx="7" class="viz-node"/><text x="150" y="165" text-anchor="middle" class="viz-text">WORK</text></g>
+                  <g class="viz-pulse"><rect x="61" y="122" width="58" height="20" rx="7" class="viz-node"/><text x="90" y="135" text-anchor="middle" class="viz-text">DB MGR</text></g>
+                  <g class="viz-pulse"><rect x="61" y="58" width="58" height="20" rx="7" class="viz-node"/><text x="90" y="71" text-anchor="middle" class="viz-text">PAM</text></g>
+                  <g class="viz-orbit"><circle cx="150" cy="100" r="86" fill="none"/><circle cx="150" cy="14" r="3" class="viz-node-alt"/></g>
+                </svg>
+              </div>
+              <div class="visual-metrics">
+                <div class="visual-metric"><b>6</b><span>Apps</span></div>
+                <div class="visual-metric"><b>1</b><span>Login · deploy</span></div>
+                <div class="visual-metric"><b>0</b><span>Brokers needed</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ---------------------------- PLXY AICC --------------------- -->
+          <article class="flagship-item is-tilt" data-reveal id="p-aicc">
+            <div>
+              <div class="flagship-head">
+                <span class="flagship-index">02 — AI telephony</span>
+                <span class="flagship-status">Architecture &amp; build</span>
+              </div>
+              <h3>PLXY AI Call Center</h3>
+              <p class="flagship-tagline">“Enterprise AI call center between the Cambodia Telco SIP trunk and the 3CX PBX agent pool.”</p>
+              <p class="flagship-summary">
+                Five separated services plus a shared scenario-schema library. A visual studio edits call
+                scenarios as graphs; a worker executes those graphs per call against a pluggable ASR/LLM/TTS
+                provider; a voice gateway drives FreeSWITCH over the Event Socket and hands live calls to
+                3CX agents. Every service is self-contained — own build, tests, Dockerfile — and liftable
+                into its own repository.
+              </p>
+              <ul class="flagship-points">
+                <li><strong>844 automated checks, 0 failures</strong> in the 2026-08-09 QA campaign, with totals regenerated from the gates' own JUnit reports rather than hand-written.</li>
+                <li><strong>A real cross-service end-to-end suite</strong> boots the actual API, worker and gateway against a real PostgreSQL 18 — and found two defects every project's own green suite had missed.</li>
+                <li><strong>Two Docker Swarm stacks</strong> so the telephony half can live on a DMZ host: exactly three ports cross the boundary and every credential is a Swarm secret, never an environment variable.</li>
+                <li><strong>Per-tenant row-level security</strong> in PostgreSQL 18 under a three-role authorisation model that combines as a union.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Spring Boot 4</span><span class="chip">Java 25</span><span class="chip">Nuxt 4</span>
+                <span class="chip">Vue Flow</span><span class="chip">FreeSWITCH 1.10</span><span class="chip">PostgreSQL 18</span>
+                <span class="chip">Docker Swarm</span><span class="chip">SIP / RTP</span>
+              </div>
+              <div class="flagship-links">
+                <a class="link-pill solid" href="https://sengphirum.github.io/PLXY_AICC/" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-book"/></svg>Documentation<svg aria-hidden="true"><use href="#i-arrow-out"/></svg>
+                </a>
+                <a class="link-pill" href="https://github.com/SengPhirum/PLXY_AICC" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-github"/></svg>Repository
+                </a>
+              </div>
+              <p class="flagship-note">Carrier onboarding, 3CX trunk provisioning and TLS/SRTP hardening are external steps the repository documents but cannot self-certify. The bundled AI provider is a deterministic simulator; real providers plug into the worker's SPI.</p>
+            </div>
+
+            <div class="flagship-visual" aria-hidden="true">
+              <div class="visual-label"><span>Call path</span><span>DNIS 9000001</span></div>
+              <div class="visual-stage">
+                <svg viewBox="0 0 300 200" role="presentation">
+                  <g class="viz-flow">
+                    <path d="M92 32 H112"/><path d="M188 32 H208"/>
+                    <path d="M150 44 V70"/><path d="M150 96 V114"/><path d="M150 140 V158"/>
+                    <path d="M112 128 H92"/><path d="M188 170 H214"/><path d="M92 170 H112"/>
+                  </g>
+                  <g class="viz-pulse"><rect x="20" y="20" width="72" height="24" rx="8" class="viz-node"/><text x="56" y="35" text-anchor="middle" class="viz-text">TELCO SIP</text></g>
+                  <g class="viz-pulse"><rect x="112" y="20" width="76" height="24" rx="8" class="viz-node-hot"/><text x="150" y="35" text-anchor="middle" class="viz-text-solid">FREESWITCH</text></g>
+                  <g class="viz-pulse"><rect x="208" y="20" width="72" height="24" rx="8" class="viz-node"/><text x="244" y="35" text-anchor="middle" class="viz-text">3CX PBX</text></g>
+                  <g class="viz-pulse"><rect x="112" y="70" width="76" height="26" rx="8" class="viz-node"/><text x="150" y="82" text-anchor="middle" class="viz-text">GATEWAY</text><text x="150" y="91" text-anchor="middle" class="viz-text-hot">:8080</text></g>
+                  <g class="viz-pulse"><rect x="112" y="114" width="76" height="26" rx="8" class="viz-node"/><text x="150" y="126" text-anchor="middle" class="viz-text">WORKER</text><text x="150" y="135" text-anchor="middle" class="viz-text-hot">:29192</text></g>
+                  <g class="viz-pulse"><rect x="112" y="158" width="76" height="26" rx="8" class="viz-node"/><text x="150" y="170" text-anchor="middle" class="viz-text">API</text><text x="150" y="179" text-anchor="middle" class="viz-text-hot">:29092</text></g>
+                  <rect x="20" y="116" width="72" height="24" rx="8" class="viz-node" stroke-dasharray="3 3"/><text x="56" y="131" text-anchor="middle" class="viz-text">AI SPI</text>
+                  <rect x="20" y="158" width="72" height="26" rx="8" class="viz-node"/><text x="56" y="175" text-anchor="middle" class="viz-text">STUDIO</text>
+                  <rect x="214" y="158" width="66" height="26" rx="8" class="viz-node-alt"/><text x="247" y="175" text-anchor="middle" class="viz-text-solid">PG 18</text>
+                  <text x="156" y="60" class="viz-text">ESL</text><text x="156" y="108" class="viz-text">WS</text><text x="156" y="152" class="viz-text">REST</text>
+                </svg>
+              </div>
+              <div class="visual-metrics">
+                <div class="visual-metric"><b>844</b><span>Checks</span></div>
+                <div class="visual-metric"><b>0</b><span>Failures</span></div>
+                <div class="visual-metric"><b>5+1</b><span>Services</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------- DrowsyGuard --------------------- -->
+          <article class="flagship-item is-tilt" data-reveal id="p-drowsyguard">
+            <div>
+              <div class="flagship-head">
+                <span class="flagship-index">03 — Embedded vision</span>
+                <span class="flagship-status">Research prototype</span>
+              </div>
+              <h3>DrowsyGuard MCU</h3>
+              <p class="flagship-tagline">“Low-cost, camera-based driver drowsiness detection designed for retrofit into older vehicles.”</p>
+              <p class="flagship-summary">
+                Risk is measured from <strong>eyelid closure over time</strong>, not from a whole-face
+                “does this look drowsy” classifier — because a face classifier trained on DDD learned to
+                recognise <em>drivers</em> rather than drowsiness. Eye closure is the mechanism itself, and
+                it is cheaper on device: the model input is a 32×32 eye patch.
+              </p>
+              <ul class="flagship-points">
+                <li><strong>A seven-wire build</strong> on an ESP32-S3-WROOM-1 N16R8 with an OV3660 camera and an I2S class-D amplifier. No display — the board serves its own Wi-Fi access point and a live MJPEG preview.</li>
+                <li><strong>11.3k parameters, ~0.9 ms per frame</strong> for both eyes: a tiny grayscale CNN INT8-quantised to <code>.espdl</code>, realistic for an ESP32-S3.</li>
+                <li><strong>Four fused cues, not one</strong> — PERCLOS (0.55), long and slow blinks (0.20), yawning (0.15) and head nodding (0.10), each measured against a rolling per-driver baseline so face shape and camera angle cancel out.</li>
+                <li><strong>Sneezes are detected in order to be ignored</strong>: a sneeze slams the eyes shut for about a second, which a naive detector scores as a microsleep. Recognising it suppresses the false alert.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">ESP-IDF</span><span class="chip">ESP-DL</span><span class="chip">C++</span>
+                <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">ONNX</span>
+                <span class="chip">OpenCV YuNet</span><span class="chip">INT8</span>
+              </div>
+              <div class="flagship-links">
+                <a class="link-pill solid" href="https://sengphirum.github.io/PLXY_DrowsyGuard/" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-book"/></svg>Documentation<svg aria-hidden="true"><use href="#i-arrow-out"/></svg>
+                </a>
+                <a class="link-pill" href="https://github.com/SengPhirum/PLXY_DrowsyGuard" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-github"/></svg>Repository
+                </a>
+              </div>
+              <p class="flagship-note">Research prototype, not a certified automotive safety device. Splits are subject-independent by principle, so no driver — and no adjacent frame of one clip — leaks across train and test.</p>
+            </div>
+
+            <div class="flagship-visual" aria-hidden="true">
+              <div class="visual-label"><span>PERCLOS &amp; behaviour fusion</span><span>32×32 patch</span></div>
+              <div class="visual-stage">
+                <svg viewBox="0 0 300 200" role="presentation">
+                  <rect x="16" y="20" width="72" height="56" rx="8" class="viz-node" stroke-dasharray="4 4"/>
+                  <path d="M28 48 q24 -20 48 0 q-24 20 -48 0Z" class="viz-eye"/>
+                  <circle cx="52" cy="48" r="7" class="viz-node-hot" opacity=".28"/>
+                  <circle cx="52" cy="48" r="3.4" class="viz-node-hot"/>
+                  <path d="M28 48 q24 -20 48 0" class="viz-lid">
+                    <animate attributeName="d" dur="4s" repeatCount="indefinite"
+                             values="M28 48 q24 -20 48 0; M28 48 q24 -20 48 0; M28 48 q24 20 48 0; M28 48 q24 -20 48 0"
+                             keyTimes="0;0.55;0.72;1"/>
+                  </path>
+                  <text x="52" y="70" text-anchor="middle" class="viz-text">EYE PATCH</text>
+
+                  <path class="viz-line" d="M104 66 H288"/>
+                  <path class="viz-wave" d="M104 56 l16 0 l6 -22 l7 22 l18 0 l6 -14 l7 14 l24 0 l6 -30 l7 30 l20 0 l6 -18 l7 18 l25 0"/>
+                  <text x="104" y="88" class="viz-text">PERCLOS · long blinks · microsleep</text>
+
+                  <g>
+                    <text x="16" y="108" class="viz-text">PERCLOS</text><rect x="90" y="101" width="110" height="7" rx="3.5" class="viz-track"/><rect x="90" y="101" width="60" height="7" rx="3.5" class="viz-node-hot"/><text x="208" y="108" class="viz-text-hot">0.55</text>
+                    <text x="16" y="124" class="viz-text">BLINKS</text><rect x="90" y="117" width="110" height="7" rx="3.5" class="viz-track"/><rect x="90" y="117" width="22" height="7" rx="3.5" class="viz-node-hot"/><text x="208" y="124" class="viz-text-hot">0.20</text>
+                    <text x="16" y="140" class="viz-text">YAWN</text><rect x="90" y="133" width="110" height="7" rx="3.5" class="viz-track"/><rect x="90" y="133" width="16.5" height="7" rx="3.5" class="viz-node-alt"/><text x="208" y="140" class="viz-text-hot">0.15</text>
+                    <text x="16" y="156" class="viz-text">NOD</text><rect x="90" y="149" width="110" height="7" rx="3.5" class="viz-track"/><rect x="90" y="149" width="11" height="7" rx="3.5" class="viz-node-alt"/><text x="208" y="156" class="viz-text-hot">0.10</text>
+                  </g>
+                  <text x="16" y="180" class="viz-text">SUSTAINED RISK</text>
+                  <rect x="90" y="172" width="194" height="10" rx="5" class="viz-track"/>
+                  <rect x="90" y="172" width="194" height="10" rx="5" class="viz-bar"/>
+                </svg>
+              </div>
+              <div class="visual-metrics">
+                <div class="visual-metric"><b>11.3k</b><span>Parameters</span></div>
+                <div class="visual-metric"><b>0.9 ms</b><span>Per frame</span></div>
+                <div class="visual-metric"><b>7</b><span>Wires</span></div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <div class="metrics" aria-label="GitHub project statistics">
+    <!-- ============================ PUBLIC WORK ========================= -->
+    <section class="section work" id="work" data-section="Projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div data-reveal>
+            <span class="section-number">03 / Public work</span>
+            <h2>Projects,<br>live from GitHub.</h2>
+          </div>
+          <p class="section-copy" data-reveal style="--reveal-delay:120ms">
+            Every public repository is loaded straight from the GitHub API, grouped into focus areas and
+            tagged by topic and language. New public work appears here without a site update — search it,
+            filter it, or switch to the compact list.
+          </p>
+        </div>
+
+        <div class="repo-toolbar" data-reveal>
+          <div class="search-wrap">
+            <svg aria-hidden="true"><use href="#i-search"/></svg>
+            <label class="visually-hidden" for="repo-search">Search repositories</label>
+            <input class="search" id="repo-search" type="search" placeholder="Search projects, topics, or languages…" autocomplete="off">
+          </div>
+          <label class="visually-hidden" for="repo-sort">Sort repositories</label>
+          <select class="sort" id="repo-sort">
+            <option value="updated">Recently updated</option>
+            <option value="stars">Most starred</option>
+            <option value="name">Name A–Z</option>
+          </select>
+          <div class="view-toggle" role="group" aria-label="Project layout">
+            <button type="button" class="is-active" data-view="grid" aria-label="Grid view" aria-pressed="true"><svg aria-hidden="true"><use href="#i-grid"/></svg></button>
+            <button type="button" data-view="list" aria-label="List view" aria-pressed="false"><svg aria-hidden="true"><use href="#i-list"/></svg></button>
+          </div>
+        </div>
+
+        <div class="tag-filters" id="tag-filters" role="group" aria-label="Filter projects by tag"></div>
+
+        <div id="repo-content" aria-live="polite" aria-busy="true">
+          <div class="repo-status"><div><div class="spinner" aria-hidden="true"></div>Loading public repositories…</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="metrics" aria-label="Portfolio statistics">
       <div class="metric"><strong class="metric-value" id="repo-count">—</strong><span class="metric-label">Public repositories</span></div>
       <div class="metric"><strong class="metric-value" id="star-count">—</strong><span class="metric-label">Stars earned</span></div>
       <div class="metric"><strong class="metric-value" id="language-count">—</strong><span class="metric-label">Languages used</span></div>
+      <div class="metric"><strong class="metric-value" data-count="3">0</strong><span class="metric-label">Live doc sites</span></div>
     </div>
 
-    <section class="section" id="contact">
+    <!-- ============================== CONTACT ========================== -->
+    <section class="section" id="contact" data-section="Contact">
       <div class="wrap">
-        <div class="contact-card">
-          <div><span class="section-number">03 / CONTACT</span><h2>Have an idea worth building?</h2></div>
-          <div class="contact-side"><p>I’m open to thoughtful conversations about finance, technology, AI, and useful digital products.</p><a class="button" href="mailto:sengphirum143@gmail.com">Start a conversation <span class="arrow">↗</span></a></div>
+        <div class="contact-card" data-reveal="scale">
+          <div>
+            <span class="section-number">04 / Contact</span>
+            <h2>Have an idea worth building?</h2>
+          </div>
+          <div class="contact-side">
+            <p>
+              I am open to thoughtful business collaboration — product partnerships, pilot deployments,
+              enterprise integrations, and applied AI or infrastructure work.
+            </p>
+            <div class="contact-actions">
+              <a class="button primary is-magnetic" href="mailto:sengphirum143@gmail.com"><span>Start a conversation</span><svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg></a>
+              <button class="button is-magnetic" type="button" id="copy-email" data-email="sengphirum143@gmail.com"><span id="copy-email-label">Copy email</span><svg class="arrow" width="15" height="15" aria-hidden="true"><use href="#i-copy"/></svg></button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="footer-row wrap"><span>© <span id="year"></span> Phirum Seng</span><span><a href="https://www.linkedin.com/in/phirum-seng/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/SengPhirum" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span></div>
+    <div class="footer-row wrap">
+      <span>© <span id="year">2026</span> Phirum Seng · Phnom Penh, Cambodia</span>
+      <div class="footer-links">
+        <a href="https://sengphirum.github.io/KNetraHub/documentation" target="_blank" rel="noopener noreferrer">KNetraHub ↗</a>
+        <a href="https://sengphirum.github.io/PLXY_AICC/" target="_blank" rel="noopener noreferrer">PLXY AICC ↗</a>
+        <a href="https://sengphirum.github.io/PLXY_DrowsyGuard/" target="_blank" rel="noopener noreferrer">DrowsyGuard ↗</a>
+        <a href="https://www.linkedin.com/in/phirum-seng/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/SengPhirum" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const GITHUB_USER = "SengPhirum";
-    const state = { repositories: [], activeTag: "All", query: "", sort: "updated" };
-    const groupOrder = ["AI & Computer Vision", "Data & Analytics", "Infrastructure & Security", "Web & Applications", "Experiments & Other"];
+  <nav class="section-rail" id="section-rail" aria-label="Section navigation"></nav>
 
-    const escapeHTML = (value = "") => String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
-    const formatDate = value => new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(new Date(value));
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
 
-    function getGroup(repo) {
-      const text = [repo.name, repo.description, ...(repo.topics || []), repo.language].filter(Boolean).join(" ").toLowerCase();
-      if (/(\bai\b|knetraai|aicc|artificial|vision|image|caption|gan|drows|machine learning|deep learning|opencv|pytorch|tensorflow)/.test(text)) return "AI & Computer Vision";
-      if (/\b(data|analytics|prediction|mapping|database|sql|spark|pandas|jupyter)\b/.test(text)) return "Data & Analytics";
-      if (/\b(docker|server|infra|auth|security|network|wifi|cloud|devops|shortcut)\b/.test(text)) return "Infrastructure & Security";
-      if (/\b(web|app|react|vue|angular|javascript|typescript|html|css|php|laravel|website|mmo)\b/.test(text)) return "Web & Applications";
-      return "Experiments & Other";
-    }
+  <!-- ========================= COMMAND PALETTE ======================== -->
+  <div class="palette-backdrop" id="palette" role="dialog" aria-modal="true" aria-label="Quick navigator" hidden>
+    <div class="palette">
+      <div class="palette-input-row">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="visually-hidden" for="palette-input">Search the site</label>
+        <input class="palette-input" id="palette-input" type="text" placeholder="Jump to a section, project, or action…" autocomplete="off" spellcheck="false">
+        <button class="icon-button" type="button" id="palette-close" aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="palette-results" id="palette-results"></div>
+      <div class="palette-foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>Esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
 
-    function getTags(repo) {
-      return [...new Set([getGroup(repo), ...(repo.topics || []), repo.language].filter(Boolean))];
-    }
+  <!-- ============================ ASSISTANT ========================== -->
+  <button class="assistant-launcher" id="assistant-launcher" type="button" aria-expanded="false" aria-controls="assistant-panel">
+    <span class="launcher-ring" aria-hidden="true"></span>
+    <svg class="bot-avatar" viewBox="0 0 100 100" aria-hidden="true"><use href="#bot-avatar"/></svg>
+    <span class="launcher-text"><b>Ask PhirumBot</b><span>Runs in your browser</span></span>
+  </button>
 
-    async function fetchAllRepositories() {
-      const all = [];
-      for (let page = 1; page <= 10; page += 1) {
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?type=owner&sort=updated&direction=desc&per_page=100&page=${page}`, { headers: { Accept: "application/vnd.github+json" } });
-        if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
-        const batch = await response.json();
-        all.push(...batch.filter(repo => !repo.private));
-        if (batch.length < 100) break;
-      }
-      return all;
-    }
+  <section class="assistant-panel" id="assistant-panel" aria-label="PhirumBot assistant" hidden>
+    <header class="assistant-head">
+      <svg class="bot-avatar" viewBox="0 0 100 100" aria-hidden="true"><use href="#bot-avatar"/></svg>
+      <div class="assistant-id">
+        <b>PhirumBot</b>
+        <span id="assistant-state">Instant mode · offline</span>
+      </div>
+      <button class="icon-button" type="button" id="assistant-reset" aria-label="Start a new conversation"><svg aria-hidden="true"><use href="#i-refresh"/></svg></button>
+      <button class="icon-button" type="button" id="assistant-close" aria-label="Close the assistant"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
 
-    function buildFilters() {
-      const counts = new Map();
-      state.repositories.flatMap(getTags).forEach(tag => counts.set(tag, (counts.get(tag) || 0) + 1));
-      const tags = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 14);
-      document.querySelector("#tag-filters").innerHTML = [["All", state.repositories.length], ...tags].map(([tag, count]) => `<button class="filter${tag === state.activeTag ? " active" : ""}" type="button" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)} <span aria-hidden="true">${count}</span></button>`).join("");
-    }
+    <div class="engine-bar">
+      <div class="engine-row">
+        <div class="engine-tabs" role="group" aria-label="Answer engine">
+          <button type="button" class="is-active" data-engine="instant" aria-pressed="true">Instant</button>
+          <button type="button" data-engine="neural" aria-pressed="false">Neural LLM</button>
+        </div>
+      </div>
+      <p class="engine-note" id="engine-note">Retrieval over Phirum's profile. No download, works offline.</p>
+      <div class="engine-row" id="neural-controls" hidden>
+        <label class="visually-hidden" for="model-select">Local model</label>
+        <select class="model-select" id="model-select"></select>
+        <button class="engine-load" type="button" id="model-load">Load model</button>
+      </div>
+      <div class="engine-progress" id="engine-progress" hidden><i></i></div>
+      <p class="engine-status" id="engine-status" hidden></p>
+    </div>
 
-    function cardTemplate(repo) {
-      const tags = getTags(repo);
-      const description = repo.description || "A public project by Phirum Seng. Open the repository to explore the code and documentation.";
-      return `<a class="repo-card" href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHTML(repo.name)} on GitHub">
-        <div class="repo-card-top"><h4>${escapeHTML(repo.name)}</h4><span class="repo-arrow" aria-hidden="true">↗</span></div>
-        <p class="repo-description">${escapeHTML(description)}</p>
-        <div class="repo-tags">${(tags.length ? tags : ["Repository"]).slice(0, 5).map(tag => `<span class="repo-tag">${escapeHTML(tag)}</span>`).join("")}</div>
-        <div class="repo-meta"><span>${repo.language ? `<i class="language-dot"></i>${escapeHTML(repo.language)}` : "Code"}</span><span>★ ${repo.stargazers_count}</span><span>Updated ${formatDate(repo.updated_at)}</span></div>
-      </a>`;
-    }
+    <div class="assistant-log" id="assistant-log" role="log" aria-live="polite"></div>
 
-    function renderRepositories() {
-      const needle = state.query.trim().toLowerCase();
-      let repos = state.repositories.filter(repo => {
-        const tags = getTags(repo);
-        const matchesTag = state.activeTag === "All" || tags.some(tag => tag.toLowerCase() === state.activeTag.toLowerCase());
-        const haystack = [repo.name, repo.description, ...tags, getGroup(repo)].filter(Boolean).join(" ").toLowerCase();
-        return matchesTag && (!needle || haystack.includes(needle));
-      });
+    <div class="assistant-suggestions" id="assistant-suggestions"></div>
 
-      repos.sort((a, b) => state.sort === "stars" ? b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at) : state.sort === "name" ? a.name.localeCompare(b.name) : new Date(b.updated_at) - new Date(a.updated_at));
-      const container = document.querySelector("#repo-content");
-      if (!repos.length) {
-        container.innerHTML = `<div class="empty-message">No projects match that filter. Try another tag or search term.</div>`;
-        return;
-      }
+    <form class="assistant-composer" id="assistant-form">
+      <label class="visually-hidden" for="assistant-input">Message PhirumBot</label>
+      <textarea id="assistant-input" rows="1" placeholder="Ask about the work…" autocomplete="off"></textarea>
+      <button class="assistant-send" type="submit" id="assistant-send" aria-label="Send"><svg aria-hidden="true"><use href="#i-send"/></svg></button>
+    </form>
+    <p class="assistant-foot">Answers are generated on your device from a profile knowledge base. Nothing you type leaves the browser.</p>
+  </section>
 
-      const grouped = Object.groupBy ? Object.groupBy(repos, getGroup) : repos.reduce((groups, repo) => ((groups[getGroup(repo)] ||= []).push(repo), groups), {});
-      container.innerHTML = groupOrder.filter(group => grouped[group]?.length).map(group => `<section class="repo-group"><div class="group-head"><h3>${group}</h3><span class="group-count">${grouped[group].length}</span></div><div class="repo-grid">${grouped[group].map(cardTemplate).join("")}</div></section>`).join("");
-    }
-
-    async function initRepositories() {
-      try {
-        state.repositories = await fetchAllRepositories();
-        buildFilters();
-        renderRepositories();
-        document.querySelector("#repo-count").textContent = state.repositories.length;
-        document.querySelector("#star-count").textContent = state.repositories.reduce((sum, repo) => sum + repo.stargazers_count, 0);
-        document.querySelector("#language-count").textContent = new Set(state.repositories.map(repo => repo.language).filter(Boolean)).size;
-      } catch (error) {
-        document.querySelector("#repo-content").innerHTML = `<div class="repo-status"><div>GitHub projects could not be loaded right now.<br><a href="https://github.com/${GITHUB_USER}?tab=repositories" target="_blank" rel="noopener noreferrer">View all repositories on GitHub ↗</a></div></div>`;
-      }
-    }
-
-    document.querySelector("#tag-filters").addEventListener("click", event => {
-      const button = event.target.closest("[data-tag]");
-      if (!button) return;
-      state.activeTag = button.dataset.tag;
-      buildFilters();
-      renderRepositories();
-    });
-    document.querySelector("#repo-search").addEventListener("input", event => { state.query = event.target.value; renderRepositories(); });
-    document.querySelector("#repo-sort").addEventListener("change", event => { state.sort = event.target.value; renderRepositories(); });
-    document.querySelector("#year").textContent = new Date().getFullYear();
-    initRepositories();
-  </script>
+  <script src="./assets/js/knowledge.js" defer></script>
+  <script src="./assets/js/site.js" defer></script>
+  <script src="./assets/js/assistant.js" defer></script>
 </body>
 </html>
