@@ -228,7 +228,7 @@
       id: "assistant",
       title: "About this assistant",
       tags: ["you", "bot", "assistant", "llm", "ai", "chatbot", "how do you work", "privacy", "webgpu", "model", "local"],
-      answer: "I am PhirumBot, and I run entirely inside your browser. **Instant mode** is a retrieval engine over a hand-written knowledge base about Phirum and his projects — no download, no network call, works offline. **Neural LLM mode** downloads a small open-weight model (SmolLM2 360M, Llama 3.2 1B or Qwen2.5 0.5B) through WebLLM and runs it on your GPU with WebGPU, using the same knowledge base as context. Either way nothing you type is sent anywhere, and the model is cached by your browser so a second visit is instant. My avatar is generated from Phirum's own portrait — the photo is cropped to the face, posterised into six bands and remapped onto a blue duotone ramp with an SVG filter."
+      answer: "I am PhirumBot, and I run entirely inside your browser. **Instant mode** is a retrieval engine over a hand-written knowledge base about Phirum and his projects — no download, no network call, works offline. **Neural LLM mode** downloads a small open-weight model (SmolLM2 360M, Llama 3.2 1B or Qwen2.5 0.5B) through WebLLM and runs it on your GPU with WebGPU, using the same knowledge base as context. Either way nothing you type is sent anywhere, and the model is cached by your browser so a second visit is instant. My avatar is drawn as vector art from Phirum's likeness — the glasses, hair and navy jacket do the resembling — so it stays sharp at any size."
     },
     {
       id: "site",

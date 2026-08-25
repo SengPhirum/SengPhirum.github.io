@@ -33,9 +33,10 @@ Two engines, both local to the browser — nothing typed into the assistant is e
 Offered models are SmolLM2 360M, Llama 3.2 1B and Qwen 2.5 0.5B. If WebGPU is unavailable or the
 model fails to start, the assistant says so plainly and falls back to Instant mode.
 
-The bot's avatar is generated from the real portrait at render time: `profile-professional.webp`
-is cropped to the face, desaturated, posterised into six bands and remapped onto a blue duotone
-ramp by an SVG filter, then dressed with a HUD visor, scanlines and an orbiting ring.
+The bot's avatar is inline vector art drawn from Phirum's likeness — the glasses, hair and navy
+jacket carry the resemblance, and the headset reads as "assistant". It is drawn rather than
+filtered from the photograph so that it stays sharp and legible at 20px, where a posterised
+photo turns to mud.
 
 ### Teaching it something new
 
@@ -51,7 +52,7 @@ assets/css/site.css        design tokens, both themes, layout, motion
 assets/js/knowledge.js     the profile knowledge base — edit this to teach the bot
 assets/js/site.js          theme, motion, scroll behaviour, GitHub grid, quick navigator
 assets/js/assistant.js     retrieval engine, WebLLM engine, chat UI
-profile-professional.webp  portrait; also the source of the bot avatar
+profile-professional.webp  portrait used in the hero
 ```
 
 `assets/js/site.js` holds two lists worth knowing about: `EXCLUDED`, a pattern for repositories

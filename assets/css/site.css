@@ -114,6 +114,10 @@
 /* --- 2. Base ------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Several hidden elements carry a display rule from their own class, which
+   would otherwise beat the user-agent's [hidden] { display: none }. */
+[hidden] { display: none !important; }
+
 html {
   overflow-x: clip;
   scroll-behavior: smooth;
@@ -889,7 +893,6 @@ footer { padding: 40px 0 34px; }
   animation: ripple 3s var(--ease) infinite;
 }
 @keyframes ripple { 0% { transform: scale(1); opacity: .6; } 70% { transform: scale(1.55); opacity: 0; } 100% { opacity: 0; } }
-.assistant-launcher[hidden] { display: none; }
 body.assistant-open .assistant-launcher { opacity: 0; pointer-events: none; transform: translateY(16px) scale(.9); }
 
 .assistant-panel {
