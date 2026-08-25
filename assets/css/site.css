@@ -262,13 +262,14 @@ p { text-wrap: pretty; }
   text-decoration: none; font-weight: 800; letter-spacing: -.03em;
 }
 .brand-mark {
-  position: relative; display: grid; place-items: center;
+  position: relative; display: grid; place-items: center; overflow: hidden;
   width: 40px; height: 40px; border-radius: 13px;
+  border: 1px solid color-mix(in srgb, var(--primary) 42%, var(--line));
   background: linear-gradient(140deg, var(--primary), var(--accent));
-  color: #fff; font-family: var(--display); font-size: 13px; font-weight: 800;
-  letter-spacing: .04em; box-shadow: var(--glow);
+  box-shadow: var(--glow);
   transition: transform .5s var(--ease);
 }
+.brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.06); }
 .brand-name { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name small { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
