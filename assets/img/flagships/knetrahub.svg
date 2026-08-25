@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">KNetraHub</title>
+  <defs>
+    <linearGradient id="kn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2496ed"/>
+      <stop offset="1" stop-color="#165d93"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#kn)"/>
+  <g fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round">
+    <line x1="440" y1="286" x2="348" y2="126.7"/>
+    <line x1="348" y1="126.7" x2="164" y2="126.7"/>
+    <line x1="164" y1="126.7" x2="72" y2="286"/>
+    <line x1="72" y1="286" x2="164" y2="445.3"/>
+    <line x1="164" y1="445.3" x2="348" y2="445.3"/>
+    <line x1="348" y1="445.3" x2="440" y2="286"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="440" cy="286" r="22"/><circle cx="348" cy="126.7" r="22"/><circle cx="164" cy="126.7" r="22"/>
+    <circle cx="72" cy="286" r="22"/><circle cx="164" cy="445.3" r="22"/><circle cx="348" cy="445.3" r="22"/>
+    <rect x="232" y="98" width="48" height="11" rx="4"/>
+    <path d="M236 98 C240 86 272 86 276 98Z"/>
+    <path d="M238 90 C224 84 222 70 230 60 C234 74 240 80 246 86Z"/>
+    <path d="M274 90 C288 84 290 70 282 60 C278 74 272 80 266 86Z"/>
+    <path d="M256 38 C244 60 240 78 248 90 C252 96 260 96 264 90 C272 78 268 60 256 38Z"/>
+  </g>
+  <path d="M150 292 C198 230 314 230 362 292 C314 354 198 354 150 292Z" fill="none" stroke="#fff" stroke-width="15" stroke-linejoin="round"/>
+  <circle cx="256" cy="292" r="48" fill="none" stroke="#fff" stroke-width="8" stroke-dasharray="30 15"/>
+  <circle cx="256" cy="292" r="29" fill="#fff"/>
+  <circle cx="256" cy="292" r="14" fill="#1d78be"/>
+  <circle cx="245" cy="281" r="5" fill="#fff"/>
+</svg>
