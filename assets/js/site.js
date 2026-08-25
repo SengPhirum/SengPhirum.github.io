@@ -306,8 +306,10 @@
     return "Experiments & Other";
   }
 
+  /* Chips on a card describe what the project is made of. The focus area is
+     already the group heading directly above, so it is not repeated here. */
   function getTags(repo) {
-    return Array.from(new Set([getGroup(repo)].concat(repo.topics || [], repo.language ? [repo.language] : []).filter(Boolean)));
+    return Array.from(new Set((repo.topics || []).concat(repo.language ? [repo.language] : []).filter(Boolean)));
   }
 
   async function fetchAllRepositories() {
@@ -324,17 +326,24 @@
     return all.filter(repo => !repo.private && !repo.fork && !EXCLUDED.test(repo.name));
   }
 
+  /* The filter row is the focus-area taxonomy — what a project is *for* —
+     shown in taxonomy order rather than by count. Languages are visible on
+     each card and searchable, but they are not categories. */
   function buildFilters() {
     const host = $("#tag-filters");
     if (!host) return;
     const counts = new Map();
-    state.repositories.forEach(repo => getTags(repo).forEach(tag => counts.set(tag, (counts.get(tag) || 0) + 1)));
-    const tags = Array.from(counts.entries())
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .slice(0, 14);
-    host.innerHTML = [["All", state.repositories.length]].concat(tags).map(([tag, count]) =>
-      `<button class="filter${tag === state.activeTag ? " is-active" : ""}" type="button" data-tag="${escapeHTML(tag)}" aria-pressed="${tag === state.activeTag}">${escapeHTML(tag)} <b>${count}</b></button>`
-    ).join("");
+    state.repositories.forEach(repo => {
+      const group = getGroup(repo);
+      counts.set(group, (counts.get(group) || 0) + 1);
+    });
+    const ordered = GROUP_ORDER.filter(group => counts.has(group))
+      .concat(Array.from(counts.keys()).filter(group => GROUP_ORDER.indexOf(group) === -1).sort());
+    host.innerHTML = [["All", state.repositories.length]]
+      .concat(ordered.map(group => [group, counts.get(group)]))
+      .map(([tag, count]) =>
+        `<button class="filter${tag === state.activeTag ? " is-active" : ""}" type="button" data-tag="${escapeHTML(tag)}" aria-pressed="${tag === state.activeTag}">${escapeHTML(tag)} <b>${count}</b></button>`
+      ).join("");
   }
 
   function cardTemplate(repo) {
@@ -352,7 +361,7 @@
           <svg class="repo-arrow" width="18" height="18" aria-hidden="true"><use href="#i-arrow-out"/></svg>
         </div>
         ${description ? `<p class="repo-description">${escapeHTML(description)}</p>` : ""}
-        <div class="repo-tags">${tags.slice(0, 4).map(t => `<span class="repo-tag">${escapeHTML(t)}</span>`).join("")}</div>
+        ${tags.length ? `<div class="repo-tags">${tags.slice(0, 4).map(t => `<span class="repo-tag">${escapeHTML(t)}</span>`).join("")}</div>` : ""}
       </div>
       <div class="repo-meta">
         <span>${repo.language ? `<i class="language-dot" aria-hidden="true"></i>${escapeHTML(repo.language)}` : "Code"}</span>
@@ -367,11 +376,12 @@
   function visibleRepositories() {
     const needle = state.query.trim().toLowerCase();
     const list = state.repositories.filter(repo => {
-      const tags = getTags(repo);
-      const matchesTag = state.activeTag === "All" || tags.some(t => t.toLowerCase() === state.activeTag.toLowerCase());
-      if (!matchesTag) return false;
+      const group = getGroup(repo);
+      if (state.activeTag !== "All" && group !== state.activeTag) return false;
       if (!needle) return true;
-      return [repo.name, repo.description].concat(tags).filter(Boolean).join(" ").toLowerCase().includes(needle);
+      return [repo.name, repo.description, group]
+        .concat(getTags(repo))
+        .filter(Boolean).join(" ").toLowerCase().includes(needle);
     });
     list.sort((a, b) => {
       if (state.sort === "stars") return b.stargazers_count - a.stargazers_count || new Date(b.pushed_at) - new Date(a.pushed_at);

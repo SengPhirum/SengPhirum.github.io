@@ -11,7 +11,7 @@ no build step.
   [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/) — each with an animated,
   hand-drawn SVG diagram of how it actually works
 - **Live GitHub portfolio** — every public repository loaded from the GitHub API, grouped by
-  focus area, with topic/language filters, search, sorting, and a grid/list toggle
+  focus area, with category filters, search, sorting, and a grid/list toggle
 - **PhirumBot**, an assistant that runs entirely in the visitor's browser (see below)
 - **Quick navigator** on <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> — jump to any section,
   project, or action; fuzzy matching includes every loaded repository
