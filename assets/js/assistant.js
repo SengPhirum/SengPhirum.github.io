@@ -146,7 +146,7 @@
     { test: /\b(bye|goodbye|see you|cya|good night)\b/i,
       reply: () => "Thanks for stopping by. If something here is useful, **sengphirum143@gmail.com** is the fastest way to reach Phirum." },
     { test: /\b(what can you do|how can you help|help me|what do you know)\b/i,
-      reply: () => "I know Phirum's profile and his three flagship systems in detail. Try:\n\n- What is KNetraHub, and what apps does it ship?\n- How does DrowsyGuard measure drowsiness?\n- What are the QA numbers for the AI Call Center?\n- What is the stack behind all of this?\n- How do I get in touch?" }
+      reply: () => "I know Phirum's profile and his four flagship systems in detail. Try:\n\n- What is KNetraHub, and what apps does it ship?\n- How does DrowsyGuard measure drowsiness?\n- What are the QA numbers for the AI Call Center?\n- What does the Claude Usage Monitor do?\n- What is the stack behind all of this?\n- How do I get in touch?" }
   ];
 
   function entryById(id) { return KB.entries.find(e => e.id === id); }

@@ -674,6 +674,8 @@ h2 {
 .visual-label { display: flex; justify-content: space-between; gap: 12px; color: var(--faint); font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; }
 .visual-stage { display: grid; place-items: center; }
 .visual-stage svg { width: 100%; height: auto; max-height: 230px; overflow: visible; }
+/* A real product screenshot in place of a drawn diagram (Claude Usage Monitor). */
+.visual-shot { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 34px rgb(8 12 20 / .14); }
 
 .viz-line { fill: none; stroke: var(--line-strong); stroke-width: 1.2; }
 .viz-flow { fill: none; stroke: var(--primary); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 5 12; animation: dash 2.4s linear infinite; }
