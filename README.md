@@ -9,8 +9,9 @@ no build step.
 - **Flagship section** for the four headline systems — [KNetraHub](https://sengphirum.github.io/KNetraHub/documentation),
   the [PLXY AI Call Center](https://sengphirum.github.io/PLXY_AICC/),
   [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/), and the
-  [Claude Usage Monitor](https://sengphirum.github.io/PLXY_ClaudeMonitor/) — each with an animated,
-  hand-drawn SVG diagram of how it actually works
+  [Claude Usage Monitor](https://sengphirum.github.io/PLXY_ClaudeMonitor/) — the first three with
+  an animated, hand-drawn SVG diagram of how they actually work, and the Claude Usage Monitor with
+  a shot of its executive dashboard running in demo mode
 - **Live GitHub portfolio** — every public repository loaded from the GitHub API, grouped by
   focus area, with category filters, search, sorting, and a grid/list toggle
 - **PhirumBot**, an assistant that runs entirely in the visitor's browser (see below)
