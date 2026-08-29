@@ -26,7 +26,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400..600&display=swap">
-  <link rel="stylesheet" href="./assets/css/site.css">
+  <!-- ?v= is a cache key, not decoration: GitHub Pages serves the stylesheet
+       and scripts with a ten-minute TTL, so without it an edit can stay
+       invisible to a returning visitor long after it deployed. Bump the token
+       in all four asset URLs below whenever site.css or any script changes. -->
+  <link rel="stylesheet" href="./assets/css/site.css?v=20260829">
   <script>
     /* Runs before first paint: flags that scripting is live and restores the
        saved theme, so a chosen dark theme never flashes light on load. */
@@ -736,8 +740,8 @@
     <p class="assistant-foot">Answers are generated on your device from a profile knowledge base. Nothing you type leaves the browser.</p>
   </section>
 
-  <script src="./assets/js/knowledge.js" defer></script>
-  <script src="./assets/js/site.js" defer></script>
-  <script src="./assets/js/assistant.js" defer></script>
+  <script src="./assets/js/knowledge.js?v=20260829" defer></script>
+  <script src="./assets/js/site.js?v=20260829" defer></script>
+  <script src="./assets/js/assistant.js?v=20260829" defer></script>
 </body>
 </html>
