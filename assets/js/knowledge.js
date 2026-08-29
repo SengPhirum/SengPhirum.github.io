@@ -58,7 +58,7 @@
       id: "drowsyguard",
       repo: "PLXY_DrowsyGuard",
       name: "DrowsyGuard MCU",
-      kind: "Camera-based driver drowsiness detection on an ESP32-S3",
+      kind: "IoT concept — camera-based driver drowsiness detection on an ESP32-S3",
       anchor: "#p-drowsyguard",
       docs: links.dgDocs.url,
       code: links.dgRepo.url,
@@ -68,7 +68,7 @@
       id: "claudemonitor",
       repo: "PLXY_ClaudeMonitor",
       name: "Claude Usage Monitor",
-      kind: "Windows desktop app for Claude organization usage monitoring",
+      kind: "Small studio tool — a Windows desktop app for Claude usage monitoring",
       anchor: "#p-claudemonitor",
       docs: links.cmDocs.url,
       /* Proprietary — the source repository is private, so there is no code link. */
@@ -82,7 +82,7 @@
       id: "identity",
       title: "Who Phirum is",
       tags: ["who", "about", "phirum", "seng", "yourself", "background", "bio", "introduce", "profile", "person"],
-      answer: "Phirum Seng is a banking professional and hands-on technologist based in Phnom Penh, Cambodia. His work sits where finance meets technology — banking systems, AI and computer vision, infrastructure and data, and useful digital products. He founded and authored KNetraHub, designed and built the PLXY AI Call Center, runs DrowsyGuard MCU as an embedded computer-vision research project, and ships the Claude Organization Usage Monitor as founder and product owner of the PLXY studio.",
+      answer: "Phirum Seng is a banking professional and hands-on technologist based in Phnom Penh, Cambodia. His work sits where finance meets technology — banking systems, AI and computer vision, infrastructure and data, and useful digital products. His two flagship systems are KNetraHub, which he founded and authored, and the PLXY AI Call Center, which he designed and built. Alongside them he runs DrowsyGuard MCU, an IoT concept for driver drowsiness detection, and ships the Claude Organization Usage Monitor, a small studio tool, as founder and product owner of the PLXY studio.",
       links: [links.github, links.linkedin]
     },
     {
@@ -182,8 +182,8 @@
     {
       id: "dg-overview",
       title: "DrowsyGuard — what it is",
-      tags: ["drowsyguard", "drowsy", "drowsiness", "driver", "sleep", "fatigue", "vehicle", "car", "esp32", "mcu", "retrofit"],
-      answer: "DrowsyGuard MCU is a low-cost, camera-based driver drowsiness detector designed for **retrofit into older vehicles**. It runs on an ESP32-S3-WROOM-1 N16R8 with an OV3660 camera and a MAX98357A I2S class-D amplifier driving a small speaker. There is deliberately **no display** — the board serves a live MJPEG preview and all of its telemetry over its own Wi-Fi access point, so you join `DrowsyGuard-XXXXXX` and open the page on a phone. It is a research prototype, not a certified automotive safety device.",
+      tags: ["drowsyguard", "drowsy", "drowsiness", "driver", "sleep", "fatigue", "vehicle", "car", "esp32", "mcu", "retrofit", "iot"],
+      answer: "DrowsyGuard MCU is an IoT concept: a low-cost, camera-based driver drowsiness detector designed for **retrofit into older vehicles**. It runs on an ESP32-S3-WROOM-1 N16R8 with an OV3660 camera and a MAX98357A I2S class-D amplifier driving a small speaker. There is deliberately **no display** — the board serves a live MJPEG preview and all of its telemetry over its own Wi-Fi access point, so you join `DrowsyGuard-XXXXXX` and open the page on a phone. It is a research prototype, not a certified automotive safety device.",
       links: [links.dgDocs, links.dgRepo]
     },
     {
@@ -218,8 +218,8 @@
     {
       id: "cm-overview",
       title: "Claude Usage Monitor — what it is",
-      tags: ["claudemonitor", "claude", "monitor", "usage", "adoption", "anthropic", "organization", "org", "desktop", "windows", "plxy", "seats", "analytics app"],
-      answer: "The **Claude Organization Usage Monitor** is a native Windows desktop application, shipped under Phirum's PLXY studio, for Owners and Primary Owners of a Claude organization. It answers the question every Claude rollout eventually gets asked — *who is actually using this?* — by monitoring organization-wide adoption, identifying low-usage accounts, computing a transparent Weighted Usage Index, raising minimum-usage alerts, and exporting management-ready reports. It uses **only officially supported Anthropic APIs and official CSV export files** — the Enterprise Analytics API, the Claude Code Analytics Admin API, the Usage & Cost Admin API and the Admin users/invites API — with no scraping and no browser automation, strictly read-only. A Demo Mode runs the whole application against an anonymized synthetic organization, so it can be evaluated without any credentials.",
+      tags: ["claudemonitor", "claude", "monitor", "usage", "adoption", "anthropic", "organization", "org", "desktop", "windows", "plxy", "seats", "analytics app", "studio", "tool"],
+      answer: "The **Claude Organization Usage Monitor** is a small studio tool: a native Windows desktop application, shipped under Phirum's PLXY studio, for Owners and Primary Owners of a Claude organization. It answers the question every Claude rollout eventually gets asked — *who is actually using this?* — by monitoring organization-wide adoption, identifying low-usage accounts, computing a transparent Weighted Usage Index, raising minimum-usage alerts, and exporting management-ready reports. It uses **only officially supported Anthropic APIs and official CSV export files** — the Enterprise Analytics API, the Claude Code Analytics Admin API, the Usage & Cost Admin API and the Admin users/invites API — with no scraping and no browser automation, strictly read-only. A Demo Mode runs the whole application against an anonymized synthetic organization, so it can be evaluated without any credentials.",
       links: [links.cmDocs, links.cmDownload]
     },
     {
@@ -240,16 +240,16 @@
     /* ------------------------------ Meta -------------------------------- */
     {
       id: "projects-list",
-      title: "The flagship projects",
+      title: "Flagships and other builds",
       tags: ["projects", "portfolio", "work", "flagship", "achievements", "built", "list", "showcase", "best"],
-      answer: "Four flagship systems, each with its own live documentation site: **KNetraHub**, a self-hosted infrastructure operations portal; the **PLXY AI Call Center**, enterprise AI telephony between a Cambodia Telco SIP trunk and a 3CX PBX; **DrowsyGuard MCU**, camera-based driver drowsiness detection on an ESP32-S3; and the **Claude Usage Monitor**, a Windows desktop application for monitoring Claude adoption across an organization. Beyond those, every public repository on GitHub is listed live in the Projects section of this page.",
+      answer: "Two flagship systems anchor the portfolio, each with its own live documentation site: **KNetraHub**, a self-hosted infrastructure operations portal, and the **PLXY AI Call Center**, enterprise AI telephony between a Cambodia Telco SIP trunk and a 3CX PBX. Alongside them sit two smaller builds: **DrowsyGuard MCU**, an IoT concept for camera-based driver drowsiness detection on an ESP32-S3, and the **Claude Usage Monitor**, a small studio tool — a Windows desktop app for monitoring Claude adoption across an organization. Beyond those, every public repository on GitHub is listed live in the Projects section of this page.",
       links: [links.knetraDocs, links.aiccDocs, links.dgDocs, links.cmDocs]
     },
     {
       id: "other-work",
       title: "Other public repositories",
       tags: ["repos", "repositories", "other", "github", "more", "everything else", "public"],
-      answer: "The Projects section loads every public repository straight from the GitHub API and groups it by focus area, so it is always current. Alongside the four flagship systems there is work on Khmer-language AI, Wi-Fi human mapping, driver-drowsiness experiments in Python, Flutter apps, and Docker tooling. You can search, filter by tag or language, and sort by recency or stars right on the page. The Claude Usage Monitor is the one flagship you will not find in that grid — its source repository is private.",
+      answer: "The Projects section loads every public repository straight from the GitHub API and groups it by focus area, so it is always current. Alongside the flagships and the smaller headline builds there is work on Khmer-language AI, Wi-Fi human mapping, driver-drowsiness experiments in Python, Flutter apps, and Docker tooling. You can search, filter by tag or language, and sort by recency or stars right on the page. The Claude Usage Monitor is the one headline project you will not find in that grid — its source repository is private.",
       links: [links.github]
     },
     {
@@ -284,7 +284,7 @@
     "How does this chatbot work?"
   ];
 
-  const greeting = "Hi — I am **PhirumBot**, running fully inside your browser. Ask me about Phirum's flagship systems (KNetraHub, the PLXY AI Call Center, DrowsyGuard MCU, the Claude Usage Monitor), the stack behind them, or how to get in touch.";
+  const greeting = "Hi — I am **PhirumBot**, running fully inside your browser. Ask me about Phirum's flagship systems (KNetraHub and the PLXY AI Call Center), the DrowsyGuard IoT concept, the Claude Usage Monitor studio tool, the stack behind them, or how to get in touch.";
 
   const fallback = "I only know what is in Phirum's profile knowledge base, and I could not find a good match for that. Try asking about **KNetraHub**, the **PLXY AI Call Center**, **DrowsyGuard MCU**, the **Claude Usage Monitor**, his approach to building, or how to **contact** him.";
 

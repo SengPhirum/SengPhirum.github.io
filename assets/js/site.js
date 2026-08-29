@@ -258,16 +258,20 @@
      ========================================================================== */
   const GITHUB_USER = "SengPhirum";
 
-  /* Coursework repositories are intentionally not part of the portfolio. */
-  const EXCLUDED = /^mite19/i;
+  /* Coursework repositories and this site's own repository are intentionally
+     not part of the portfolio. */
+  const EXCLUDED = /^mite19|^sengphirum\.github\.io$/i;
 
+  /* Only repositories labelled "Flagship" join the Flagship systems group;
+     the rest keep their badge but are classified by focus area like any
+     other repository. */
   const FEATURED = {
     knetrahub:         { label: "Flagship", docs: "https://sengphirum.github.io/KNetraHub/documentation" },
     plxy_aicc:         { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_AICC/" },
-    plxy_drowsyguard:  { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_DrowsyGuard/" },
+    plxy_drowsyguard:  { label: "IoT concept", docs: "https://sengphirum.github.io/PLXY_DrowsyGuard/" },
     /* Private source; listed so the badge and docs link apply if it is ever
-       made public. Until then the flagship card is its home on this page. */
-    plxy_claudemonitor: { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_ClaudeMonitor/" }
+       made public. Until then the headline card is its home on this page. */
+    plxy_claudemonitor: { label: "Studio tool", docs: "https://sengphirum.github.io/PLXY_ClaudeMonitor/" }
   };
 
   /* Used only when a repository carries no GitHub description of its own.
@@ -298,10 +302,9 @@
     return Number.isNaN(date.getTime()) ? "—" : new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(date);
   };
 
-  function isFeatured(repo) { return Object.prototype.hasOwnProperty.call(FEATURED, repo.name.toLowerCase()); }
-
   function getGroup(repo) {
-    if (isFeatured(repo)) return "Flagship systems";
+    const featured = FEATURED[repo.name.toLowerCase()];
+    if (featured && featured.label === "Flagship") return "Flagship systems";
     const text = [repo.name, repo.description, (repo.topics || []).join(" "), repo.language].filter(Boolean).join(" ").toLowerCase();
     if (/(knetraai|khmerai|aicc|prompt|\bllm\b|\bai\b|artificial|vision|image|caption|\bgan\b|drows|machine learning|deep learning|opencv|pytorch|tensorflow|jupyter)/.test(text)) return "AI & Computer Vision";
     if (/(docker|swarm|server|infra|auth|authentik|security|network|wifi|cloud|devops|shortcut|shell|kubernetes)/.test(text)) return "Infrastructure & Security";
@@ -503,19 +506,19 @@
     const list = [
       { group: "Sections", title: "Home",     hint: "Top of the page",             icon: "arrow-up", run: () => goTo("#top") },
       { group: "Sections", title: "About",    hint: "Approach and principles",     icon: "corner",   run: () => goTo("#about") },
-      { group: "Sections", title: "Flagship", hint: "The four headline systems",   icon: "spark",    run: () => goTo("#flagship") },
+      { group: "Sections", title: "Flagship", hint: "The headline systems",        icon: "spark",    run: () => goTo("#flagship") },
       { group: "Sections", title: "Projects", hint: "Every public repository",     icon: "grid",     run: () => goTo("#work") },
       { group: "Sections", title: "Contact",  hint: "Start a conversation",        icon: "mail",     run: () => goTo("#contact") }
     ];
 
     (window.PHIRUM ? window.PHIRUM.projects : []).forEach(project => {
       list.push({
-        group: "Flagship", title: project.name, hint: project.kind, icon: "spark",
+        group: "Headline work", title: project.name, hint: project.kind, icon: "spark",
         keywords: project.repo + " " + project.stack.join(" "),
         run: () => goTo(project.anchor)
       });
       list.push({
-        group: "Flagship", title: project.name + " — documentation", hint: project.docs.replace(/^https?:\/\//, ""), icon: "book",
+        group: "Headline work", title: project.name + " — documentation", hint: project.docs.replace(/^https?:\/\//, ""), icon: "book",
         keywords: "docs documentation " + project.repo,
         run: () => window.open(project.docs, "_blank", "noopener")
       });
