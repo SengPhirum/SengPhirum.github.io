@@ -6,12 +6,12 @@ no build step.
 
 ## Highlights
 
-- **Flagship section** for the four headline systems — [KNetraHub](https://sengphirum.github.io/KNetraHub/documentation),
-  the [PLXY AI Call Center](https://sengphirum.github.io/PLXY_AICC/),
-  [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/), and the
-  [Claude Usage Monitor](https://sengphirum.github.io/PLXY_ClaudeMonitor/) — the first three with
-  an animated, hand-drawn SVG diagram of how they actually work, and the Claude Usage Monitor with
-  a shot of its executive dashboard running in demo mode
+- **Headline work section** — the two flagship systems, [KNetraHub](https://sengphirum.github.io/KNetraHub/documentation)
+  and the [PLXY AI Call Center](https://sengphirum.github.io/PLXY_AICC/), joined by the
+  [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/) IoT concept and the
+  [Claude Usage Monitor](https://sengphirum.github.io/PLXY_ClaudeMonitor/) studio tool — the first
+  three with an animated, hand-drawn SVG diagram of how they actually work, and the Claude Usage
+  Monitor with a shot of its executive dashboard running in demo mode
 - **Live GitHub portfolio** — every public repository loaded from the GitHub API, grouped by
   focus area, with category filters, search, sorting, and a grid/list toggle
 - **PhirumBot**, an assistant that runs entirely in the visitor's browser (see below)
@@ -58,8 +58,8 @@ profile-professional.webp  portrait used in the hero
 ```
 
 `assets/js/site.js` holds two lists worth knowing about: `EXCLUDED`, a pattern for repositories
-kept off the site, and `FEATURED`/`TAGLINES`, which badge the flagship repositories and supply a
-description when GitHub has none.
+kept off the site (coursework and this repository itself), and `FEATURED`/`TAGLINES`, which badge
+the headline repositories and supply a description when GitHub has none.
 
 ## Local preview
 

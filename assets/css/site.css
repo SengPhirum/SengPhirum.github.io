@@ -178,7 +178,7 @@ body::after {
 }
 
 a { color: inherit; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { background: none; border: 0; cursor: pointer; }
 :focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
