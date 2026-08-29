@@ -563,7 +563,9 @@
             <div class="flagship-visual" aria-hidden="true">
               <div class="visual-label"><span>Executive dashboard</span><span>demo mode</span></div>
               <div class="visual-stage">
-                <img class="visual-shot" src="assets/img/flagships/claudemonitor-dashboard.webp" width="1600" height="773" loading="lazy" decoding="async" alt="">
+                <!-- The inline height keeps the shot in proportion even if a
+                     cached stylesheet from before this image existed is served. -->
+                <img class="visual-shot" src="assets/img/flagships/claudemonitor-dashboard.webp" width="1600" height="773" style="height:auto" loading="lazy" decoding="async" alt="">
               </div>
               <div class="visual-metrics">
                 <div class="visual-metric"><b>168</b><span>Tests passing</span></div>
