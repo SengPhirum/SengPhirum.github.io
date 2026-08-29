@@ -6,12 +6,12 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0d0c" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Phirum Seng — banking professional and hands-on technologist in Phnom Penh, Cambodia. Founder and author of KNetraHub, the PLXY AI Call Center, and DrowsyGuard MCU. Explore the work across infrastructure, AI, telephony, data, and digital products.">
+  <meta name="description" content="Phirum Seng — banking professional and hands-on technologist in Phnom Penh, Cambodia. Founder and author of KNetraHub, the PLXY AI Call Center, DrowsyGuard MCU, and the Claude Organization Usage Monitor. Explore the work across infrastructure, AI, telephony, data, and digital products.">
   <meta name="author" content="Phirum Seng">
   <link rel="canonical" href="https://sengphirum.github.io/">
 
   <meta property="og:title" content="Phirum Seng — Finance × Technology">
-  <meta property="og:description" content="Banking perspective. Builder mindset. Flagship work across self-hosted infrastructure, enterprise AI telephony, and embedded computer vision — plus a live portfolio straight from GitHub.">
+  <meta property="og:description" content="Banking perspective. Builder mindset. Flagship work across self-hosted infrastructure, enterprise AI telephony, embedded computer vision, and desktop analytics — plus a live portfolio straight from GitHub.">
   <meta property="og:image" content="https://sengphirum.github.io/profile-professional.webp">
   <meta property="og:image:alt" content="Portrait of Phirum Seng">
   <meta property="og:type" content="profile">
@@ -57,7 +57,8 @@
     ],
     "knowsAbout": [
       "Banking systems", "Self-hosted infrastructure", "Docker Swarm", "AI call centre telephony",
-      "Computer vision", "Embedded machine learning", "Data and analytics", "Web applications"
+      "Computer vision", "Embedded machine learning", "Data and analytics", "Web applications",
+      "Windows desktop applications", "Usage analytics and reporting"
     ]
   }
   </script>
@@ -142,6 +143,7 @@
     <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4v5h-5"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v7A2.5 2.5 0 0 0 5.5 15"/></symbol>
     <symbol id="i-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v6a4 4 0 0 0 4 4h11m0 0-4-4m4 4-4 4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
   </svg>
 
   <header class="site-header" id="site-header">
@@ -185,14 +187,15 @@
           <p class="hero-lead" data-reveal style="--reveal-delay:120ms">
             I am Phirum — a <strong>banking professional</strong> and hands-on technologist. I build the
             unglamorous systems that operations teams live inside: infrastructure portals, AI telephony,
-            and embedded computer vision — then make them clear enough that people actually use them.
+            embedded computer vision, and desktop analytics — then make them clear enough that people
+            actually use them.
           </p>
           <div class="hero-actions" data-reveal style="--reveal-delay:200ms">
             <a class="button primary is-magnetic" href="#flagship"><span>See the flagship work</span><span class="arrow" aria-hidden="true">↓</span></a>
             <button class="button is-magnetic" type="button" data-open-assistant><span>Ask my AI assistant</span><svg class="arrow" width="16" height="16" aria-hidden="true"><use href="#i-spark"/></svg></button>
           </div>
           <div class="hero-proof" data-reveal style="--reveal-delay:280ms">
-            <div class="proof-item"><strong data-count="3">0</strong><span>Flagship systems</span></div>
+            <div class="proof-item"><strong data-count="4">0</strong><span>Flagship systems</span></div>
             <div class="proof-item"><strong data-count="844" data-suffix="">0</strong><span>AICC checks passing</span></div>
             <div class="proof-item"><strong data-count="6">0</strong><span>Apps in KNetraHub</span></div>
             <div class="proof-item"><strong id="proof-repos">—</strong><span>Public repositories</span></div>
@@ -215,11 +218,13 @@
             <li>Banking systems</li><li>Docker Swarm</li><li>AI call centre</li><li>Computer vision</li>
             <li>PostgreSQL</li><li>Nuxt &amp; Vue</li><li>Spring Boot</li><li>Embedded ML</li>
             <li>Observability</li><li>Privileged access</li><li>FreeSWITCH</li><li>Data &amp; analytics</li>
+            <li>Qt desktop apps</li><li>Usage analytics</li>
           </ul>
           <ul>
             <li>Banking systems</li><li>Docker Swarm</li><li>AI call centre</li><li>Computer vision</li>
             <li>PostgreSQL</li><li>Nuxt &amp; Vue</li><li>Spring Boot</li><li>Embedded ML</li>
             <li>Observability</li><li>Privileged access</li><li>FreeSWITCH</li><li>Data &amp; analytics</li>
+            <li>Qt desktop apps</li><li>Usage analytics</li>
           </ul>
         </div>
       </div>
@@ -287,7 +292,7 @@
             <h2>Flagship<br>systems.</h2>
           </div>
           <p class="section-copy" data-reveal style="--reveal-delay:120ms">
-            Three systems I designed and built end to end — each documented publicly, each with its own
+            Four systems I designed and built end to end — each documented publicly, each with its own
             live documentation site. Open any of them and you get the architecture, the setup path, and
             an honest account of what has and has not been proven.
           </p>
@@ -514,6 +519,78 @@
             </div>
           </article>
 
+          <!-- ----------------------- Claude Usage Monitor ---------------- -->
+          <article class="flagship-item is-tilt" data-reveal id="p-claudemonitor">
+            <div>
+              <div class="flagship-head">
+                <span class="flagship-index">04 — Desktop analytics</span>
+                <span class="flagship-status">PLXY founder &amp; product owner · v1.0.0</span>
+              </div>
+              <div class="flagship-title">
+                <img class="flagship-app-icon" src="assets/img/flagships/claudemonitor.svg" width="64" height="64" loading="lazy" alt="Claude Organization Usage Monitor app icon">
+                <h3>Claude Usage Monitor</h3>
+              </div>
+              <p class="flagship-tagline">“Windows desktop application for Claude organization owners — adoption monitoring, Weighted Usage Index, low-usage alerts and management reports from official Anthropic APIs.”</p>
+              <p class="flagship-summary">
+                A native Windows application, shipped under the PLXY studio, that answers the question
+                every Claude rollout eventually gets asked: <strong>who is actually using this?</strong>
+                It reads only officially supported Anthropic Admin APIs and official CSV exports — no
+                scraping, no browser automation, strictly read-only — and turns them into dashboards,
+                alerts and reports a manager can defend line by line in front of a finance committee.
+              </p>
+              <ul class="flagship-points">
+                <li><strong>A number you can defend, not one that looks good</strong> — the Weighted Usage Index scores each account against configurable targets, weights and contribution caps, and shows the formula, policy version and per-metric breakdown in the UI and in every export.</li>
+                <li><strong>Missing data is missing, never zero</strong> — every data category is probed and shown as Available or Unavailable with the reason, so nobody is flagged a low performer because of an API gap in their plan.</li>
+                <li><strong>Alerting with governance</strong> — thresholds per group, new-user grace periods, duplicate suppression, and a fully audited Alert Exemptions register. Monitoring only: accounts are never modified and conversation content is never touched.</li>
+                <li><strong>Seven export formats from one snapshot</strong> — PDF, XLSX (11 worksheets), DOCX, PPTX, CSV, HTML and JSON, so exported numbers exactly match the screen. API keys live in Windows Credential Manager, never in a file.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Python 3.12</span><span class="chip">PySide6 / Qt</span><span class="chip">SQLAlchemy</span>
+                <span class="chip">httpx</span><span class="chip">pandas</span><span class="chip">ReportLab</span>
+                <span class="chip">PyInstaller</span><span class="chip">Windows 10 / 11</span>
+              </div>
+              <div class="flagship-links">
+                <a class="link-pill solid" href="https://sengphirum.github.io/PLXY_ClaudeMonitor/" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-book"/></svg>Documentation<svg aria-hidden="true"><use href="#i-arrow-out"/></svg>
+                </a>
+                <a class="link-pill" href="https://sengphirum.github.io/PLXY_ClaudeMonitor/DOWNLOADS/" target="_blank" rel="noopener noreferrer">
+                  <svg aria-hidden="true"><use href="#i-download"/></svg>Download for Windows
+                </a>
+              </div>
+              <p class="flagship-note">Proprietary software — the source repository is private, so unlike the other flagships there is no public code link. The documentation, download page and SHA-256 checksums are public, and Demo Mode runs the whole application on an anonymized synthetic organization, no credentials needed.</p>
+            </div>
+
+            <div class="flagship-visual" aria-hidden="true">
+              <div class="visual-label"><span>Official APIs → defensible index</span><span>read-only</span></div>
+              <div class="visual-stage">
+                <svg viewBox="0 0 300 200" role="presentation">
+                  <g class="viz-flow">
+                    <path d="M62 44 L118 70"/><path d="M150 44 V70"/><path d="M238 44 L182 70"/>
+                    <path d="M150 96 V114"/><path d="M150 140 V158"/>
+                    <path d="M76 127 H88"/><path d="M212 127 H224"/>
+                    <path d="M88 171 H76"/><path d="M212 171 H224"/>
+                  </g>
+                  <g class="viz-pulse"><rect x="24" y="20" width="76" height="24" rx="8" class="viz-node"/><text x="62" y="35" text-anchor="middle" class="viz-text">ANALYTICS</text></g>
+                  <g class="viz-pulse"><rect x="112" y="20" width="76" height="24" rx="8" class="viz-node"/><text x="150" y="35" text-anchor="middle" class="viz-text">USAGE &amp; COST</text></g>
+                  <g class="viz-pulse"><rect x="200" y="20" width="76" height="24" rx="8" class="viz-node"/><text x="238" y="35" text-anchor="middle" class="viz-text">ADMIN USERS</text></g>
+                  <g class="viz-pulse"><rect x="88" y="70" width="124" height="26" rx="8" class="viz-node"/><text x="150" y="82" text-anchor="middle" class="viz-text">CAPABILITY PROBE</text><text x="150" y="91" text-anchor="middle" class="viz-text-hot">available / unavailable</text></g>
+                  <g class="viz-pulse"><rect x="88" y="114" width="124" height="26" rx="8" class="viz-node"/><text x="150" y="126" text-anchor="middle" class="viz-text">LOCAL SNAPSHOT</text><text x="150" y="135" text-anchor="middle" class="viz-text-hot">one store, every report</text></g>
+                  <g class="viz-pulse"><rect x="88" y="158" width="124" height="26" rx="8" class="viz-node-hot"/><text x="150" y="175" text-anchor="middle" class="viz-text-solid">WEIGHTED USAGE INDEX</text></g>
+                  <rect x="8" y="115" width="68" height="24" rx="8" class="viz-node" stroke-dasharray="3 3"/><text x="42" y="130" text-anchor="middle" class="viz-text">CSV IMPORT</text>
+                  <rect x="224" y="115" width="68" height="24" rx="8" class="viz-node-alt"/><text x="258" y="130" text-anchor="middle" class="viz-text-solid">AUDIT LOG</text>
+                  <rect x="8" y="159" width="68" height="24" rx="8" class="viz-node"/><text x="42" y="174" text-anchor="middle" class="viz-text">ALERTS</text>
+                  <rect x="224" y="159" width="68" height="24" rx="8" class="viz-node"/><text x="258" y="174" text-anchor="middle" class="viz-text">7 FORMATS</text>
+                  <text x="156" y="62" class="viz-text">HTTPS</text><text x="156" y="108" class="viz-text">SYNC</text><text x="156" y="152" class="viz-text">SCORE</text>
+                </svg>
+              </div>
+              <div class="visual-metrics">
+                <div class="visual-metric"><b>168</b><span>Tests passing</span></div>
+                <div class="visual-metric"><b>7</b><span>Export formats</span></div>
+                <div class="visual-metric"><b>0</b><span>Accounts modified</span></div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -563,7 +640,7 @@
       <div class="metric"><strong class="metric-value" id="repo-count">—</strong><span class="metric-label">Public repositories</span></div>
       <div class="metric"><strong class="metric-value" id="star-count">—</strong><span class="metric-label">Stars earned</span></div>
       <div class="metric"><strong class="metric-value" id="language-count">—</strong><span class="metric-label">Languages used</span></div>
-      <div class="metric"><strong class="metric-value" data-count="3">0</strong><span class="metric-label">Live doc sites</span></div>
+      <div class="metric"><strong class="metric-value" data-count="4">0</strong><span class="metric-label">Live doc sites</span></div>
     </div>
 
     <!-- ============================== CONTACT ========================== -->
@@ -596,6 +673,7 @@
         <a href="https://sengphirum.github.io/KNetraHub/documentation" target="_blank" rel="noopener noreferrer">KNetraHub ↗</a>
         <a href="https://sengphirum.github.io/PLXY_AICC/" target="_blank" rel="noopener noreferrer">PLXY AICC ↗</a>
         <a href="https://sengphirum.github.io/PLXY_DrowsyGuard/" target="_blank" rel="noopener noreferrer">DrowsyGuard ↗</a>
+        <a href="https://sengphirum.github.io/PLXY_ClaudeMonitor/" target="_blank" rel="noopener noreferrer">ClaudeMonitor ↗</a>
         <a href="https://www.linkedin.com/in/phirum-seng/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         <a href="https://github.com/SengPhirum" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>

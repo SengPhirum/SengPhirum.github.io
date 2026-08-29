@@ -262,17 +262,21 @@
   const EXCLUDED = /^mite19/i;
 
   const FEATURED = {
-    knetrahub:        { label: "Flagship", docs: "https://sengphirum.github.io/KNetraHub/documentation" },
-    plxy_aicc:        { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_AICC/" },
-    plxy_drowsyguard: { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_DrowsyGuard/" }
+    knetrahub:         { label: "Flagship", docs: "https://sengphirum.github.io/KNetraHub/documentation" },
+    plxy_aicc:         { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_AICC/" },
+    plxy_drowsyguard:  { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_DrowsyGuard/" },
+    /* Private source; listed so the badge and docs link apply if it is ever
+       made public. Until then the flagship card is its home on this page. */
+    plxy_claudemonitor: { label: "Flagship", docs: "https://sengphirum.github.io/PLXY_ClaudeMonitor/" }
   };
 
   /* Used only when a repository carries no GitHub description of its own.
      Each line is the project's own README tagline, not a guess. */
   const TAGLINES = {
-    knetrahub:        "Khmer Netra Hub — a portal for everything in your infrastructure, one hub at a time.",
-    plxy_aicc:        "Enterprise AI call centre between the Cambodia Telco SIP trunk and the 3CX PBX agent pool.",
-    plxy_drowsyguard: "Low-cost, camera-based driver drowsiness detection for retrofit into older vehicles."
+    knetrahub:         "Khmer Netra Hub — a portal for everything in your infrastructure, one hub at a time.",
+    plxy_aicc:         "Enterprise AI call centre between the Cambodia Telco SIP trunk and the 3CX PBX agent pool.",
+    plxy_drowsyguard:  "Low-cost, camera-based driver drowsiness detection for retrofit into older vehicles.",
+    plxy_claudemonitor: "Windows desktop application for Claude organization owners — adoption monitoring, Weighted Usage Index, low-usage alerts and management reports from official Anthropic APIs."
   };
 
   const GROUP_ORDER = [
@@ -499,7 +503,7 @@
     const list = [
       { group: "Sections", title: "Home",     hint: "Top of the page",             icon: "arrow-up", run: () => goTo("#top") },
       { group: "Sections", title: "About",    hint: "Approach and principles",     icon: "corner",   run: () => goTo("#about") },
-      { group: "Sections", title: "Flagship", hint: "The three headline systems",  icon: "spark",    run: () => goTo("#flagship") },
+      { group: "Sections", title: "Flagship", hint: "The four headline systems",   icon: "spark",    run: () => goTo("#flagship") },
       { group: "Sections", title: "Projects", hint: "Every public repository",     icon: "grid",     run: () => goTo("#work") },
       { group: "Sections", title: "Contact",  hint: "Start a conversation",        icon: "mail",     run: () => goTo("#contact") }
     ];

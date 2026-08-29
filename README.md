@@ -6,9 +6,10 @@ no build step.
 
 ## Highlights
 
-- **Flagship section** for the three headline systems — [KNetraHub](https://sengphirum.github.io/KNetraHub/documentation),
-  the [PLXY AI Call Center](https://sengphirum.github.io/PLXY_AICC/), and
-  [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/) — each with an animated,
+- **Flagship section** for the four headline systems — [KNetraHub](https://sengphirum.github.io/KNetraHub/documentation),
+  the [PLXY AI Call Center](https://sengphirum.github.io/PLXY_AICC/),
+  [DrowsyGuard MCU](https://sengphirum.github.io/PLXY_DrowsyGuard/), and the
+  [Claude Usage Monitor](https://sengphirum.github.io/PLXY_ClaudeMonitor/) — each with an animated,
   hand-drawn SVG diagram of how it actually works
 - **Live GitHub portfolio** — every public repository loaded from the GitHub API, grouped by
   focus area, with category filters, search, sorting, and a grid/list toggle
