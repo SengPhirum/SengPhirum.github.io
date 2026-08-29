@@ -61,6 +61,12 @@ profile-professional.webp  portrait used in the hero
 kept off the site (coursework and this repository itself), and `FEATURED`/`TAGLINES`, which badge
 the headline repositories and supply a description when GitHub has none.
 
+**After editing any stylesheet or script, bump the `?v=` token** on the four asset URLs in
+`index.html`. GitHub Pages serves those files with a ten-minute cache lifetime, so a returning
+visitor can otherwise keep running the old CSS or JS well after the change went live — which
+looks exactly like the deploy having failed. Changing the token gives the browser a URL it has
+never seen, so the new file is fetched the moment the new HTML arrives.
+
 ## Local preview
 
 ```bash
