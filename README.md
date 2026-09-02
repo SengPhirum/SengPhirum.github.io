@@ -54,18 +54,50 @@ assets/css/site.css        design tokens, both themes, layout, motion
 assets/js/knowledge.js     the profile knowledge base — edit this to teach the bot
 assets/js/site.js          theme, motion, scroll behaviour, GitHub grid, quick navigator
 assets/js/assistant.js     retrieval engine, WebLLM engine, chat UI
-profile-professional.webp  portrait used in the hero
+profile-professional.webp  portrait used in the hero (1400w) and -1000.webp (1000w)
 ```
 
 `assets/js/site.js` holds two lists worth knowing about: `EXCLUDED`, a pattern for repositories
 kept off the site (coursework and this repository itself), and `FEATURED`/`TAGLINES`, which badge
 the headline repositories and supply a description when GitHub has none.
 
-**After editing any stylesheet or script, bump the `?v=` token** on the four asset URLs in
-`index.html`. GitHub Pages serves those files with a ten-minute cache lifetime, so a returning
-visitor can otherwise keep running the old CSS or JS well after the change went live — which
-looks exactly like the deploy having failed. Changing the token gives the browser a URL it has
+**After editing any stylesheet or script, bump the `?v=` token** on the asset URLs in
+`index.html` and on `ASSISTANT_SRC` in `assets/js/site.js`. GitHub Pages serves those files
+with a ten-minute cache lifetime, so a returning visitor can otherwise keep running the old CSS
+or JS well after the change went live — which looks exactly like the deploy having failed. Changing the token gives the browser a URL it has
 never seen, so the new file is fetched the moment the new HTML arrives.
+
+## Performance
+
+The page is deliberately cheap to render, and a few things that look like style
+choices are really budget choices. Undoing one will cost frame rate on a phone.
+
+- **No animated blur.** The aurora behind the page is three drifting radial
+  gradients. It used to sit under `filter: blur(70px)`, which meant the browser
+  re-blurred a viewport-sized layer on every frame of a 34-second animation —
+  by a wide margin the most expensive thing on the page. The gradients fade out
+  on their own, so the blur only cost.
+- **Decorative animation stops off screen.** The SVG diagrams and the marquee
+  are declared `animation-play-state: paused` and released by an `.is-live`
+  class that `site.js` toggles from an IntersectionObserver, so four cards'
+  worth of dashes, pulses and orbits are not repainting below the fold.
+- **Geometry is measured outside the scroll handler.** Reading `offsetTop`
+  inside it — after the same frame had written classes and custom properties —
+  forced a synchronous layout on every scrolled frame. `measure()` is the only
+  place that reads layout, and it runs on resize and once the page settles.
+- **The phone gets a lighter page.** Under 900px the paper grain, the header's
+  backdrop blur and the aurora's animation all switch off. They are texture and
+  polish on a desktop; on a phone they are a full-viewport composite per frame.
+- **PhirumBot loads on demand.** `assistant.js` is fetched on the first request
+  to open the assistant, and speculatively once the browser goes idle, so the
+  engine costs nothing before first paint.
+- **Fonts do not block the first paint.** The Google Fonts stylesheet is
+  requested as `media="print"` and promoted on load, with a `<noscript>`
+  fallback. The families ask only for the axis ranges the design uses.
+
+Verified with Chromium under 4× CPU throttling at an iPhone viewport: layout
+during scroll fell from 4.1 s to 0.45 s, main-thread blocking from 860 ms to
+289 ms, and long tasks from 29 to 3.
 
 ## Local preview
 
