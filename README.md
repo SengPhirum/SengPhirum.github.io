@@ -54,7 +54,7 @@ assets/css/site.css        design tokens, both themes, layout, motion
 assets/js/knowledge.js     the profile knowledge base — edit this to teach the bot
 assets/js/site.js          theme, motion, scroll behaviour, GitHub grid, quick navigator
 assets/js/assistant.js     retrieval engine, WebLLM engine, chat UI
-profile-professional.webp  portrait used in the hero (1400w) and -1000.webp (1000w)
+profile-professional.webp  hero portrait, with -600.webp and -1000.webp for smaller screens
 ```
 
 `assets/js/site.js` holds two lists worth knowing about: `EXCLUDED`, a pattern for repositories
@@ -62,7 +62,7 @@ kept off the site (coursework and this repository itself), and `FEATURED`/`TAGLI
 the headline repositories and supply a description when GitHub has none.
 
 **After editing any stylesheet or script, bump the `?v=` token** on the asset URLs in
-`index.html` and on `ASSISTANT_SRC` in `assets/js/site.js`. GitHub Pages serves those files
+`index.html` and on `KNOWLEDGE_SRC` / `ASSISTANT_SRC` in `assets/js/site.js`. GitHub Pages serves those files
 with a ten-minute cache lifetime, so a returning visitor can otherwise keep running the old CSS
 or JS well after the change went live — which looks exactly like the deploy having failed. Changing the token gives the browser a URL it has
 never seen, so the new file is fetched the moment the new HTML arrives.
@@ -88,16 +88,38 @@ choices are really budget choices. Undoing one will cost frame rate on a phone.
 - **The phone gets a lighter page.** Under 900px the paper grain, the header's
   backdrop blur and the aurora's animation all switch off. They are texture and
   polish on a desktop; on a phone they are a full-viewport composite per frame.
-- **PhirumBot loads on demand.** `assistant.js` is fetched on the first request
-  to open the assistant, and speculatively once the browser goes idle, so the
-  engine costs nothing before first paint.
+- **Nothing above the fold waits on JavaScript.** The hero used to sit at
+  `opacity: 0` until the reveal observer ran, so the browser could not count
+  its text as painted until `site.js` had downloaded and executed — Largest
+  Contentful Paint landed there. The hero animates from the stylesheet instead
+  and moves rather than fades, so it is paintable on the first frame. Keep any
+  new above-the-fold element out of the observer-driven reveal.
+- **PhirumBot and its knowledge base load on demand.** `knowledge.js` and
+  `assistant.js` are ~50 KB serving the quick navigator and the assistant, both
+  opened by hand. They are fetched on first use and speculatively once the
+  browser goes idle, instead of competing for bandwidth while the hero paints.
+  The navigator rebuilds its entries when the knowledge base arrives.
+- **Images are cut to the box they are drawn in.** The portrait ships at 600w,
+  1000w and 1400w with `sizes` matched to the measured slot, and the header
+  avatar is 120px for a 40px mark rather than the 1000px original it was.
 - **Fonts do not block the first paint.** The Google Fonts stylesheet is
   requested as `media="print"` and promoted on load, with a `<noscript>`
   fallback. The families ask only for the axis ranges the design uses.
 
-Verified with Chromium under 4× CPU throttling at an iPhone viewport: layout
-during scroll fell from 4.1 s to 0.45 s, main-thread blocking from 860 ms to
-289 ms, and long tasks from 29 to 3.
+Verified with Chromium under 4× CPU throttling: layout during scroll fell from
+4.1 s to 0.45 s, main-thread blocking from 860 ms to 289 ms, and long tasks from
+29 to 3. Under Lighthouse's mobile profile as well (slow 4G, 4× CPU, gzipped,
+median of three runs), Largest Contentful Paint fell from 1940 ms to 800 ms and
+the bytes fetched in the first two seconds from 89 KB to 67 KB.
+
+Two things are deliberately *not* optimised. The stylesheet is still a
+render-blocking request: inlining it would save roughly 400 ms of First
+Contentful Paint, but the rules that would have to move — responsive and
+reduced-motion — cover the hero and the rest of the page alike, and splitting
+them wrong shows up as a layout shift in the viewport. And PageSpeed's "use
+efficient cache lifetimes" cannot be satisfied here at all: GitHub Pages serves
+every asset with a fixed ten-minute `max-age` and offers no way to configure
+response headers. Only a custom domain behind a CDN would change it.
 
 ## Local preview
 

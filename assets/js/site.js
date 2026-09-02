@@ -295,24 +295,45 @@
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* PhirumBot's engine is ~21 KB that most visitors never open, so it is no
-     longer part of the initial page load. It is fetched on the first request
-     to open it, and speculatively once the browser goes idle, so a click
-     still feels instant without costing anything before first paint.
-     assistant.js binds itself to the "assistant:open" event on init, which is
-     why the event is dispatched after the script resolves. */
-  const ASSISTANT_SRC = "./assets/js/assistant.js?v=20260829b";
+  /* The knowledge base and PhirumBot's engine are together ~50 KB serving two
+     things a visitor opens by hand: the quick navigator and the assistant.
+     Loaded eagerly they competed for bandwidth exactly while the hero was
+     trying to paint, so both are fetched on first use and speculatively once
+     the browser goes idle — a click still feels instant, and neither costs
+     anything before first paint. assistant.js binds itself to the
+     "assistant:open" event on init, which is why the event is dispatched only
+     after the script resolves. */
+  const KNOWLEDGE_SRC = "./assets/js/knowledge.js?v=20260902";
+  const ASSISTANT_SRC = "./assets/js/assistant.js?v=20260902";
+  let knowledgeLoad = null;
   let assistantLoad = null;
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
+  /* The navigator lists the headline projects out of the knowledge base, so it
+     is rebuilt once that arrives. */
+  function loadKnowledge() {
+    if (!knowledgeLoad) {
+      knowledgeLoad = loadScript(KNOWLEDGE_SRC)
+        .then(rebuildCommands)
+        .catch(error => { knowledgeLoad = null; throw error; });
+    }
+    return knowledgeLoad;
+  }
 
   function loadAssistant() {
     if (!assistantLoad) {
-      assistantLoad = new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = ASSISTANT_SRC;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
+      assistantLoad = loadKnowledge()
+        .then(() => loadScript(ASSISTANT_SRC))
+        .catch(error => { assistantLoad = null; throw error; });
     }
     return assistantLoad;
   }
@@ -320,7 +341,7 @@
   function openAssistant() {
     loadAssistant()
       .then(() => document.dispatchEvent(new CustomEvent("assistant:open")))
-      .catch(() => { assistantLoad = null; });
+      .catch(() => {});
   }
 
   $$("[data-open-assistant]").forEach(button => button.addEventListener("click", openAssistant));
@@ -328,7 +349,7 @@
   if (launcher) launcher.addEventListener("click", openAssistant);
 
   const whenIdle = window.requestIdleCallback || (fn => setTimeout(fn, 1));
-  setTimeout(() => whenIdle(() => loadAssistant().catch(() => { assistantLoad = null; })), 2500);
+  setTimeout(() => whenIdle(() => loadAssistant().catch(() => {})), 2500);
 
   /* ==========================================================================
      GitHub project grid
@@ -625,9 +646,11 @@
 
   commands = baseCommands();
 
-  function registerRepoCommands(repositories) {
+  let repoList = [];
+
+  function rebuildCommands() {
     const featuredRepos = new Set((window.PHIRUM ? window.PHIRUM.projects : []).map(p => p.repo.toLowerCase()));
-    const repoCommands = repositories
+    const repoCommands = repoList
       .filter(repo => !featuredRepos.has(repo.name.toLowerCase()))
       .map(repo => ({
         group: "Repositories",
@@ -639,6 +662,11 @@
       }));
     commands = baseCommands().concat(repoCommands);
     if (paletteEl && paletteEl.classList.contains("is-open")) renderPalette();
+  }
+
+  function registerRepoCommands(repositories) {
+    repoList = repositories;
+    rebuildCommands();
   }
 
   function scoreCommand(command, needle) {
@@ -691,6 +719,7 @@
 
   function openPalette() {
     if (!paletteEl) return;
+    loadKnowledge().catch(() => {});
     lastFocused = document.activeElement;
     paletteEl.hidden = false;
     requestAnimationFrame(() => paletteEl.classList.add("is-open"));
