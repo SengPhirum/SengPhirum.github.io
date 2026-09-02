@@ -218,6 +218,21 @@ p { text-wrap: pretty; }
 .js [data-reveal="scale"] { transform: scale(.94); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 
+/* Above the fold, nothing may wait on JavaScript to become visible. Holding
+   the hero at opacity 0 until the reveal observer fired meant the browser
+   could not count its text as painted until site.js had downloaded, parsed
+   and run — which is precisely where Largest Contentful Paint was landing.
+   The hero animates from the stylesheet instead, and moves rather than fades,
+   so its text is paintable on the very first frame. */
+.js .hero [data-reveal] {
+  opacity: 1;
+  transition: none;
+  animation: heroRise .7s var(--ease-out-soft) var(--reveal-delay, 0ms) both;
+}
+.js .hero [data-reveal="scale"] { animation-name: heroScale; }
+@keyframes heroRise  { from { transform: translate3d(0, 22px, 0); } to { transform: none; } }
+@keyframes heroScale { from { transform: scale(.96); }             to { transform: none; } }
+
 /* Headline words rise out of a clipped line. */
 .rise { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; }
 .js .rise > span {

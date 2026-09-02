@@ -32,7 +32,7 @@
        invisible to a returning visitor long after it deployed. Bump the token
        in every asset URL below — and on assistant.js in site.js, which loads
        it on demand — whenever site.css or any script changes. -->
-  <link rel="stylesheet" href="./assets/css/site.css?v=20260829b">
+  <link rel="stylesheet" href="./assets/css/site.css?v=20260902">
   <script>
     /* Runs before first paint: flags that scripting is live and restores the
        saved theme, so a chosen dark theme never flashes light on load. */
@@ -211,7 +211,7 @@
         <aside class="hero-card" aria-label="Portrait" data-reveal="scale" style="--reveal-delay:160ms">
           <div class="portrait-wrap" id="portrait-wrap">
             <img class="portrait" id="portrait" src="./profile-professional.webp" width="1400" height="1120"
-                 srcset="./profile-professional-1000.webp 1000w, ./profile-professional.webp 1400w"
+                 srcset="./profile-professional-600.webp 600w, ./profile-professional-1000.webp 1000w, ./profile-professional.webp 1400w"
                  sizes="(max-width: 980px) 77vw, 400px"
                  alt="Phirum Seng standing outside a modern bank office building" fetchpriority="high" decoding="async">
             <span class="scanline" aria-hidden="true"></span>
@@ -744,7 +744,6 @@
     <p class="assistant-foot">Answers are generated on your device from a profile knowledge base. Nothing you type leaves the browser.</p>
   </section>
 
-  <script src="./assets/js/knowledge.js?v=20260829b" defer></script>
-  <script src="./assets/js/site.js?v=20260829b" defer></script>
+  <script src="./assets/js/site.js?v=20260902" defer></script>
 </body>
 </html>
