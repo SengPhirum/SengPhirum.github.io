@@ -61,38 +61,54 @@
   }
   const railDots = $$("button", rail || document.createElement("div"));
 
+  /* Geometry is measured here and nowhere else. Reading offsetTop inside the
+     scroll handler — after the same frame had already written classes and
+     custom properties — forced the browser to redo layout on every single
+     scrolled frame, which was the page's largest cost by a wide margin.
+     These numbers only change when the viewport or the content does. */
+  const portrait = $("#portrait");
+  let sectionTops = [];
+  let scrollMax = 0;
+  let viewportH = window.innerHeight;
+
+  function measure() {
+    viewportH = window.innerHeight;
+    scrollMax = document.documentElement.scrollHeight - viewportH;
+    sectionTops = sections.map(s => s.offsetTop);
+  }
+
   let ticking = false;
   function onScroll() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
       const y = window.scrollY;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (progress) progress.style.setProperty("--progress", max > 0 ? Math.min(y / max, 1).toFixed(4) : 0);
+
+      if (progress) progress.style.setProperty("--progress", scrollMax > 0 ? Math.min(y / scrollMax, 1).toFixed(4) : 0);
       if (header) header.classList.toggle("is-stuck", y > 12);
-      if (toTop) toTop.classList.toggle("is-on", y > window.innerHeight * 0.8);
+      if (toTop) toTop.classList.toggle("is-on", y > viewportH * 0.8);
 
       // Scroll spy — the section occupying the upper third of the viewport wins.
-      const line = y + window.innerHeight * 0.34;
+      const line = y + viewportH * 0.34;
       let active = sections[0];
-      sections.forEach(s => { if (s.offsetTop <= line) active = s; });
+      for (let i = 0; i < sections.length; i += 1) if (sectionTops[i] <= line) active = sections[i];
       if (active) {
         railDots.forEach(d => d.classList.toggle("is-active", d.dataset.target === active.id));
         navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + active.id));
       }
 
-      sweepReveals();
+      // The reveal sweep is a safety net for targets the observer missed, so it
+      // runs once the page settles rather than measuring every frame.
       scheduleSettleSweep();
 
-      // Portrait parallax.
-      const portrait = $("#portrait");
       if (portrait && !calm()) portrait.style.setProperty("--parallax", Math.max(-26, Math.min(26, y * -0.045)).toFixed(2) + "px");
 
       ticking = false;
     });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
+  window.addEventListener("resize", () => { measure(); onScroll(); }, { passive: true });
+  measure();
   onScroll();
 
   if (toTop) toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: calm() ? "auto" : "smooth" }));
@@ -138,11 +154,25 @@
   let settleTimer = null;
   function scheduleSettleSweep() {
     clearTimeout(settleTimer);
-    settleTimer = setTimeout(sweepReveals, 260);
+    settleTimer = setTimeout(() => { measure(); sweepReveals(); }, 260);
   }
 
   observeReveals(document);
   scheduleSettleSweep();
+
+  /* Decorative animation runs only while it is on screen. The SVG diagrams
+     and the marquee are declared paused in site.css and released by this
+     class, so four cards' worth of dashes, pulses and orbits stop repainting
+     the moment they scroll away. */
+  const liveTargets = $$(".flagship-visual, .marquee");
+  if ("IntersectionObserver" in window && liveTargets.length) {
+    const liveObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle("is-live", entry.isIntersecting));
+    }, { rootMargin: "120px 0px" });
+    liveTargets.forEach(target => liveObserver.observe(target));
+  } else {
+    liveTargets.forEach(target => target.classList.add("is-live"));
+  }
 
   /* ------------------------------------------------- kinetic headline */
   function wrapRise(node) {
@@ -211,22 +241,38 @@
       }, { passive: true });
     }
 
+    /* Both effects below used to call getBoundingClientRect and write styles
+       on every pointer event, so a single hover could force dozens of layouts
+       a second. The box is now measured once when the pointer arrives and the
+       style is written inside an animation frame. */
     $$(".is-magnetic").forEach(el => {
+      let box = null, frame = 0, dx = 0, dy = 0;
+      const write = () => { frame = 0; el.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`; };
+      el.addEventListener("pointerenter", () => { box = el.getBoundingClientRect(); }, { passive: true });
       el.addEventListener("pointermove", event => {
-        const box = el.getBoundingClientRect();
-        const dx = (event.clientX - box.left - box.width / 2) * 0.22;
-        const dy = (event.clientY - box.top - box.height / 2) * 0.3;
-        el.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
-      });
-      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+        if (!box) box = el.getBoundingClientRect();
+        dx = (event.clientX - box.left - box.width / 2) * 0.22;
+        dy = (event.clientY - box.top - box.height / 2) * 0.3;
+        if (!frame) frame = requestAnimationFrame(write);
+      }, { passive: true });
+      el.addEventListener("pointerleave", () => {
+        box = null;
+        if (frame) { cancelAnimationFrame(frame); frame = 0; }
+        el.style.transform = "";
+      }, { passive: true });
     });
 
     $$(".is-tilt").forEach(el => {
+      let box = null, frame = 0, mx = "50%", my = "50%";
+      const write = () => { frame = 0; el.style.setProperty("--mx", mx); el.style.setProperty("--my", my); };
+      el.addEventListener("pointerenter", () => { box = el.getBoundingClientRect(); }, { passive: true });
       el.addEventListener("pointermove", event => {
-        const box = el.getBoundingClientRect();
-        el.style.setProperty("--mx", (((event.clientX - box.left) / box.width) * 100).toFixed(1) + "%");
-        el.style.setProperty("--my", (((event.clientY - box.top) / box.height) * 100).toFixed(1) + "%");
+        if (!box) box = el.getBoundingClientRect();
+        mx = (((event.clientX - box.left) / box.width) * 100).toFixed(1) + "%";
+        my = (((event.clientY - box.top) / box.height) * 100).toFixed(1) + "%";
+        if (!frame) frame = requestAnimationFrame(write);
       }, { passive: true });
+      el.addEventListener("pointerleave", () => { box = null; }, { passive: true });
     });
   }
 
@@ -249,9 +295,40 @@
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  $$("[data-open-assistant]").forEach(button => {
-    button.addEventListener("click", () => document.dispatchEvent(new CustomEvent("assistant:open")));
-  });
+  /* PhirumBot's engine is ~21 KB that most visitors never open, so it is no
+     longer part of the initial page load. It is fetched on the first request
+     to open it, and speculatively once the browser goes idle, so a click
+     still feels instant without costing anything before first paint.
+     assistant.js binds itself to the "assistant:open" event on init, which is
+     why the event is dispatched after the script resolves. */
+  const ASSISTANT_SRC = "./assets/js/assistant.js?v=20260829b";
+  let assistantLoad = null;
+
+  function loadAssistant() {
+    if (!assistantLoad) {
+      assistantLoad = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = ASSISTANT_SRC;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+    return assistantLoad;
+  }
+
+  function openAssistant() {
+    loadAssistant()
+      .then(() => document.dispatchEvent(new CustomEvent("assistant:open")))
+      .catch(() => { assistantLoad = null; });
+  }
+
+  $$("[data-open-assistant]").forEach(button => button.addEventListener("click", openAssistant));
+  const launcher = $("#assistant-launcher");
+  if (launcher) launcher.addEventListener("click", openAssistant);
+
+  const whenIdle = window.requestIdleCallback || (fn => setTimeout(fn, 1));
+  setTimeout(() => whenIdle(() => loadAssistant().catch(() => { assistantLoad = null; })), 2500);
 
   /* ==========================================================================
      GitHub project grid
@@ -526,7 +603,7 @@
 
     list.push(
       { group: "Actions", title: "Ask PhirumBot", hint: "In-browser AI assistant", icon: "spark", keywords: "chat ai bot llm assistant",
-        run: () => document.dispatchEvent(new CustomEvent("assistant:open")) },
+        run: openAssistant },
       { group: "Actions", title: "Toggle theme", hint: "Light and dark", icon: "moon", keywords: "dark light appearance colour color",
         run: () => themeToggle && themeToggle.click() },
       { group: "Actions", title: "Copy email address", hint: "sengphirum143@gmail.com", icon: "copy", keywords: "mail contact address",

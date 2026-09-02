@@ -144,23 +144,23 @@ body {
   inset: -20vmax;
   z-index: -2;
   pointer-events: none;
-  filter: blur(70px);
-  opacity: .55;
+  opacity: .5;
 }
 .aurora span {
   position: absolute;
   display: block;
   border-radius: 50%;
   mix-blend-mode: multiply;
+  will-change: transform;
   animation: drift 34s var(--ease) infinite alternate;
 }
 :root[data-theme="dark"] .aurora span { mix-blend-mode: screen; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .aurora span { mix-blend-mode: screen; }
 }
-.aurora span:nth-child(1) { width: 46vmax; height: 46vmax; left: 52%; top: 2%;  background: radial-gradient(circle, var(--primary), transparent 68%); opacity: .5; }
-.aurora span:nth-child(2) { width: 38vmax; height: 38vmax; left: 6%;  top: 34%; background: radial-gradient(circle, var(--accent), transparent 68%);  opacity: .38; animation-duration: 45s; animation-delay: -12s; }
-.aurora span:nth-child(3) { width: 30vmax; height: 30vmax; left: 68%; top: 62%; background: radial-gradient(circle, var(--signal), transparent 68%);  opacity: .22; animation-duration: 52s; animation-delay: -22s; }
+.aurora span:nth-child(1) { width: 46vmax; height: 46vmax; left: 52%; top: 2%;  background: radial-gradient(circle, var(--primary), transparent 78%); opacity: .5; }
+.aurora span:nth-child(2) { width: 38vmax; height: 38vmax; left: 6%;  top: 34%; background: radial-gradient(circle, var(--accent), transparent 78%);  opacity: .38; animation-duration: 45s; animation-delay: -12s; }
+.aurora span:nth-child(3) { width: 30vmax; height: 30vmax; left: 68%; top: 62%; background: radial-gradient(circle, var(--signal), transparent 78%);  opacity: .22; animation-duration: 52s; animation-delay: -22s; }
 @keyframes drift {
   from { transform: translate3d(0, 0, 0) scale(1); }
   to   { transform: translate3d(-9vmax, 7vmax, 0) scale(1.22); }
@@ -210,16 +210,13 @@ p { text-wrap: pretty; }
   opacity: 0;
   transform: translate3d(0, 26px, 0);
   transition:
-    opacity .8s var(--ease-out-soft) var(--reveal-delay, 0ms),
-    transform .8s var(--ease-out-soft) var(--reveal-delay, 0ms),
-    filter .8s var(--ease-out-soft) var(--reveal-delay, 0ms);
-  filter: blur(6px);
-  will-change: opacity, transform;
+    opacity .7s var(--ease-out-soft) var(--reveal-delay, 0ms),
+    transform .7s var(--ease-out-soft) var(--reveal-delay, 0ms);
 }
 .js [data-reveal="left"]  { transform: translate3d(-30px, 0, 0); }
 .js [data-reveal="right"] { transform: translate3d(30px, 0, 0); }
 .js [data-reveal="scale"] { transform: scale(.94); }
-.js [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* Headline words rise out of a clipped line. */
 .rise { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; }
@@ -372,7 +369,7 @@ body.has-pointer .spotlight { opacity: 1; }
 .kicker {
   display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px;
   padding: 7px 14px 7px 8px; border: 1px solid var(--line); border-radius: 999px;
-  background: var(--surface); backdrop-filter: blur(10px);
+  background: var(--surface);
   font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
 }
 .kicker .pulse {
@@ -544,7 +541,7 @@ h2 {
   content: ""; position: absolute; right: -90px; bottom: -110px;
   width: 300px; height: 300px; border-radius: 50%;
   background: radial-gradient(circle, var(--primary), transparent 66%);
-  opacity: .32; filter: blur(4px);
+  opacity: .3;
   animation: drift 22s var(--ease) infinite alternate;
 }
 .statement p { position: relative; z-index: 1; max-width: 700px; margin: 0; font-size: clamp(23px, 3.1vw, 39px); line-height: 1.2; letter-spacing: -.032em; }
@@ -555,7 +552,7 @@ h2 {
 .principle {
   position: relative; overflow: hidden;
   padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius);
-  background: var(--surface); backdrop-filter: blur(8px);
+  background: var(--surface);
   transition: transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
 }
 .principle::before {
@@ -583,7 +580,7 @@ h2 {
   gap: clamp(26px, 3.4vw, 52px);
   padding: clamp(26px, 3.4vw, 46px);
   border: 1px solid var(--line); border-radius: var(--radius-lg);
-  background: var(--surface); backdrop-filter: blur(10px);
+  background: var(--surface);
   transition: border-color .6s var(--ease), box-shadow .6s var(--ease), transform .6s var(--ease);
 }
 .flagship-item::before {
@@ -1071,4 +1068,37 @@ body.assistant-open .assistant-launcher { opacity: 0; pointer-events: none; tran
   .js .rise > span { transform: none !important; }
   .spotlight, .scanline, .aurora { display: none; }
   .marquee-track { animation: none; }
+}
+
+
+/* ==========================================================================
+   14. Rendering budget
+   Everything in this section changes what the browser has to recompute on a
+   phone, not what the design looks like.
+   ========================================================================== */
+
+/* Decorative animation is paused while its card is off screen. Without this
+   every SVG diagram — dashes, pulses, orbits, four cards' worth — went on
+   animating far outside the viewport, repainting for nobody. site.js adds
+   .is-live as each one scrolls into view. */
+.flagship-visual:not(.is-live) svg *,
+.marquee:not(.is-live) .marquee-track { animation-play-state: paused; }
+
+@media (max-width: 900px) {
+  /* The grain is a fixed full-viewport layer composited above everything, so
+     it is paid for on every scrolled frame — to supply a texture nobody looks
+     for on a phone. */
+  body::after { display: none; }
+
+  /* A sticky header that blurs its backdrop has to re-blur that strip
+     continuously while the page moves underneath it. */
+  .site-header, .site-header.is-stuck {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+  }
+
+  /* A 34-second drift nobody perceives is not worth a phone's battery — and
+     with the animation gone there is no reason to keep the layers promoted. */
+  .aurora span { animation: none; will-change: auto; }
 }
